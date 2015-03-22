@@ -1,0 +1,46 @@
+<div id="wrapper1">
+	<section id="promotext" class="container">
+			<header class="title">
+				<h2>Recharge Details</h2>
+				<span class="byline"></span> 
+			</header>
+	</section>
+	<div id="editprofilecontainer" class="container clearfix">
+
+	<%= form_tag (url_for({:controller => 'recharges',:action => 'create'})) do %>
+
+
+			<% if flash[:alert] %>
+				<div id="flash">
+					<span id="alert"><%= flash[:alert] %></span>
+				</div>
+			<% end %>
+			<% if flash[:notice] %>
+				<div id="flash">
+					<span id="notice"><%= flash[:notice] %></span>
+				</div>
+			<% end %>
+
+			<% if @recharge && @recharge.errors.any? %>
+				<div id="errors">
+					<% for message in @recharge.errors.full_messages %>
+						<%= message %> <br>
+					<% end %>
+				</div>
+			<% end %>
+
+			<%= hidden_field_tag 'orderid', @order.id %>
+			 
+
+			<label>Mobile Number</label>
+			<%= text_field_tag("phonenumber", nil, :class => "text", :placeholder => "Phone Number", :value => @phone) %>	
+			<%= label_tag("Mobile Operator") %>
+			<%= select_tag "phone_operator", options_for_select(Recharge.providers, @current_user.phone_operator||"Airtel") %>
+		
+			<%= submit_tag("Submit Details",:class => "submitbutton",) %>			
+	<% end %>
+
+	
+	
+	</div>
+</div>

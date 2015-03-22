@@ -1,0 +1,196 @@
+.promo-3steps{
+    min-width:1000px;
+    width:100%;
+    background-color:$cream;
+    padding-top:30px;
+    padding-bottom:20px;
+    .promo-steps{
+        text-align:center;
+        font-family:"FiraSans",sans-serif;
+        .promostep{
+
+            border-radius:0.3em;
+            &:hover{
+                background-color:rgba(0,0,0,0.03);
+            }
+            .promostep-img-box
+            {
+                height:120px;
+                img
+                {
+                    margin-top:20px;
+                    width:100px;
+                    height:100px;   
+                    margin-bottom:10px;
+                }
+            }
+            .promostep-content{
+                padding:1em 1em 1em 1em;
+                color:rgb(62,63,58);
+                h3{
+                    color:#648A34;
+                    margin-bottom:0.7em;
+                    font-weight:100;
+                    font-size:1.5em;
+                }
+                p{
+                    margin-bottom:1em;
+                    font-size:1em;
+                    font-weight:100;
+                }
+                .promostep-action{
+                    font-size:0.8em;
+                    color:#648A34;
+                    text-transform:uppercase;
+                    font-weight:normal;
+                    display:block;
+                    margin-bottom:1.5em;
+                    padding:1em;
+                    border-radius:0.2em;
+                    background-color:rgba(0,0,0,0.03);
+                    transition: all 200ms linear;
+                    &:hover{
+                        background-color:#648A34;
+                        
+                        color:white;
+                    }
+                }
+            }
+        }
+    }
+}
+.promo-header{
+    background-color:$cream;
+    font-family:"FiraSans",sans-serif;
+    text-align: center;
+    h2{
+        padding:1em 0em 0.5em 0em;
+        font-size: 2em;
+        text-transform: uppercase;
+        color:$greybackground;
+    }
+    p{
+        color:$greybackground;
+        font-weight: 100;
+        width:800px;
+        padding-top:10px;
+        padding-bottom:10px;
+        margin:auto;
+
+    }
+}
+
+.promo-testimonials{
+    min-width:1000px;
+    width:100%;
+    background:$greybackground;
+    min-height: 500px;
+    padding-bottom:1em;        
+    color:rgb(62,63,58);
+    
+    .getkudoscontainer{
+        margin-top:50px;
+        color:white;
+        text-align: center;
+        font-weight: 100;
+    }    
+}
+
+.promo-slider{
+    padding-top:1em;
+    background-color:$lightgreen;
+    z-index:1;
+}
+
+.slidercontainer #OrderAmount, .slidercontainer #RechargeAmount{
+    text-align:center;
+    font-family:"FiraSans",sans-serif;
+    font-weight:bold;
+    font-size:25px;
+    .currency{
+        color:white;
+        font-size:1em;
+    }   
+
+}
+.slidercontainer{
+    padding:20px;
+    margin-top:10px;
+    padding-bottom:50px;
+    #RechargeValue{
+        color:white;
+        font-size:1.3em;
+    }
+    .currency{
+        color:white;
+        font-size:1.3em;
+    }   
+    #RatesOrderValue{
+        color:white;
+        font-size:1em;
+    }   
+    .label{
+        color:$greybackground;
+        font-weight: normal;
+        font-weight: bold;
+        text-transform: uppercase;      
+    }
+    .sliderform{
+        margin-top:20px;
+        margin-bottom:20px;
+        height:50px;
+        .storesselector{
+            width:180px;
+            float:left;
+            select{
+                option{
+                    font-family:"FiraSans",sans-serif !important;
+                    color:white;
+                    font-weight: bold;
+                    text-transform: uppercase;                    
+                } 
+                //border:0;
+                //-webkit-appearance: none;
+                //-moz-appearance: none;
+                // text-indent: 1px;
+                //text-overflow: '';
+                outline:none;
+                width:130px;
+                margin:auto;
+                display:block;
+                background-color:$greybackground;
+                border-radius:5px;
+                height:50px;
+                padding:1em;
+                font-size:1em;
+                font-family:"FiraSans",sans-serif;
+                color:white;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition:all 200ms;
+                &:hover{
+                    cursor:pointer;
+                    outline:none;
+                    color:white;
+                    background-color:$greybackground;    
+                }
+                &:active{
+                    background-color:$greybackground;
+                    color:white;
+                    outline:none;
+                    outline:none;
+                }
+            }
+        }
+        #RatesSlider{
+            margin-top:15px;
+            width:780px;
+            float:left;
+            border:none;
+        }
+        #RatesSlider.noUi-background{
+            //background-color:$darkgreen;
+            
+        }
+    }
+}

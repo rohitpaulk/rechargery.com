@@ -1,0 +1,16 @@
+!!!5
+%html
+  %head
+    %title Rechargery - Free talktime when you shop online
+    = stylesheet_link_tag "application_new", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application_new", "data-turbolinks-track" => true
+  %body
+    = render partial: "pages/newpagesheader"
+    %section.docswrapper
+      %section.container.docscontainer.clearfix
+        %section.leftpane
+          = yield :leftpane
+        %section.rightpane
+          = yield :rightpane          
+    = render partial: "pages/newfooter"
+    = yield :afterjs

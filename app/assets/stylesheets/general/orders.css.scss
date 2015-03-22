@@ -1,0 +1,220 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blackbackground :#333333;
+$lightgreen: #8DCB89;
+
+$darkgreen: #6FC06A;
+$whitetext:#FFF;
+
+/*********************************/
+/** ORDERS INDEX *****************/
+/**********************************/
+
+#ordersindexcontainer
+{
+	text-align: center;
+	content table
+	{
+		width:1200px;
+		margin-bottom: 3em;
+		a 
+		{
+			color:$blackbackground;
+		}
+		thead th {
+				position:relative;
+				cursor:help;
+
+			}
+			#th_status:after
+			{
+
+
+				content:"\f05a";
+				position:absolute;
+				
+				top:0.2em;
+
+
+    			font-family: FontAwesome;
+    			font-weight: normal;
+    			font-style: normal;
+    			text-decoration: inherit;
+    			-webkit-font-smoothing: antialiased;
+    			color:rgba(255,255,255,0.7);
+    
+    			font-size: 0.7em;    
+    			position:absolute;
+    
+
+			}
+	}
+	h4
+	{
+		text-align: center;
+		font-size: 1.3em;
+		color : $blackbackground;
+		text-transform:uppercase;
+		font-weight:400;
+		
+	}
+	h3
+		{
+			text-align: center;
+				font-size: 1.5em;
+				color : $blackbackground;
+				text-transform:uppercase;
+				
+				margin-bottom: 0em;
+				font-weight: bold;
+		}
+	header
+		{
+			h3
+			{
+				text-align: center;
+				font-size: 2em;
+				//color: rgba(255,255,255,1);
+				color : $blackbackground;
+				//color: lighten($blackbackground,5);
+				text-transform:uppercase;
+				font-weight:400;
+				margin-bottom: 1em;
+			}
+		}
+}
+
+/**********************************/
+/** ORDER SHOW *********************/
+/**********************************/
+
+#orderdetails
+{
+	text-align:center;
+	padding-bottom: 4em;
+	min-height: 10em;
+	article h3
+	{
+		padding:1em 0em 2em 0em;
+	}
+	article ul li
+	{
+		font-size: 2em;
+		color:$blackbackground;
+		font-weight: bold;
+		strong
+		{
+			font-weight: normal;
+			color:white;
+			text-transform: uppercase;
+		}
+	}
+	content table
+	{
+		margin: 0 auto 1em auto;
+		width:500px;
+
+		tr
+		{
+			border: 1px solid white;
+		}
+		tr td:last-child
+		{
+			border-bottom:1px solid rgba(255,255,255,0.5);
+		}
+		tr:last-child td
+		{
+			border:none;
+		}
+		tr td:first-child
+		{
+			width:150px;
+			color:white;
+			background-color: $blackbackground;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		tr:first-child td:first-child 
+    	{ 
+  			border-radius: 10px 0 0 0; 
+  		} 
+		tr:first-child td:last-child 
+		{ 
+			border-radius: 0 10px 0 0; 
+		}
+	}
+}
+
+/******************************************/
+/*** NEW FLIPKART ************************/
+/********************************************/
+
+#newflipkartcontainer
+{
+	
+	text-align: center;
+	padding-top: 1em;
+	h4
+	{
+		text-align: center;
+		font-size: 1.5em;
+		color : $blackbackground;
+		text-transform:uppercase;
+		font-weight:400;
+		
+	}
+	header
+		{
+			margin-bottom: 1em;
+			h3
+			{
+				text-align: center;
+				font-size: 2em;
+				//color: rgba(255,255,255,1);
+				color : $blackbackground;
+				//color: lighten($blackbackground,5);
+				text-transform:uppercase;
+				font-weight:400;
+				margin-bottom: 0em;
+			}
+		}
+}
+.step
+{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	header
+	{
+		h3
+		{
+			font-size: 1.5em;
+			text-transform: uppercase;
+		}
+		.byline
+		{
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			font-weight: 400;
+			font-size: 0.9em;
+			color:darken(white,10);
+		}
+
+	}
+	article
+	{
+		padding-top: 1em;
+		.link 
+		{
+			color:$lightgreen;
+		}
+	}
+	text-align: center;
+	color:white;
+}
+#step1
+{
+	
+}

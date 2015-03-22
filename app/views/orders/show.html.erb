@@ -1,0 +1,102 @@
+<div id="wrapper1">
+	
+	<section id="promotext" class="container">
+		<header class="title">
+			<h2>Order Details</h2>
+			<span class="byline"></span> 
+		</header>
+	</section>
+	<section id="orderdetails" class="container">
+		<content>
+		<% if @order %>
+			
+				<table>
+					<tr>
+						<td>Order ID</td>
+						<td><%= @order.orderid %></td>
+					</tr>
+					<tr>
+						<td>Date</td>
+						<td><%= @order.created_at.strftime("%d/%m/%Y") %></td>
+					</tr>					
+					<tr>
+						<td>Shop</td>
+						<td><%= @order.shopnametext %></td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td><%= @order.productname %></td>
+					</tr>
+					<tr>
+						<td>Amount</td>
+						<td><%= @order.amount %></td>
+					</tr>
+					<tr>
+						<td>Email Used</td>
+						<td><%= @order.emailused %></td>
+					</tr>
+					<tr>
+						<td>Status</td>
+						<td><%= @order.statustext %></td>
+					</tr>
+
+
+				</table>
+		
+			<% if @order.status == 0 %>
+			<%= link_to("Edit Order Details",url_for({:controller => "orders",:action => "edit"}),:class => "button", :id => @order.id) %>
+			<% if !(@order.recharge.blank?) %>
+			<%= link_to('View Recharge Details',url_for({:controller => "recharges",:action => "show", :id => @order.recharge.id }),:class => "button") %>
+			<% else %>
+			<%= link_to('Create Recharge',url_for({:controller => "recharges",:action => "new",:orderid => @order.id}),:class => "button") %>
+			<% end %>
+			
+			<br><br>
+				You've submitted your order! Within 48hrs of delivery, we'll confirm the order and you'll be eligible for your recharge!. <br><br> 
+			<% elsif @order.status == 1 %>
+				<br>
+				Your Order has been confirmed. <strong>You'll receive a recharge for Rs. <%= @order.amount %> soon!</strong> <br><br>(Depending on the store's return and cancellation policy, it might take upto 30 days for you to receive your recharge)
+				<br>
+			<% if !(@order.recharge.blank?) %>
+			<%= link_to('View Recharge Details',url_for({:controller => "recharges",:action => "show", :id => @order.recharge.id }),:class => "button") %>
+			<% else %>
+			<%= link_to('Create Recharge',url_for({:controller => "recharges",:action => "new",:orderid => @order.id}),:class => "button") %>
+			<% end %>
+		
+			<% elsif @order.status ==2 %>
+				<br>Your recharge was successful. <br>
+				<%= link_to('View Recharge Details',url_for({:controller => "recharges",:action => "show", :id => @order.recharge.id }),:class => "button") %>
+			<% elsif @order.status ==3 %>
+				<br>Confirmation of your order failed. This could be due to any of the following reasons: <br>
+				<strong>Incorrect order details</strong>: Kindly confirm that the order details you've provided are correct.<br>
+				<strong>Mistakes while ordering</strong>: You didn't click on the Buy Now button immediately after following our link.<br><br>
+
+				Write to us at hello@rechargery to know more about why your order confirmation failed. Make sure to include your order ID in your e-mail.<br>
+			
+			<% elsif @order.status ==4 %>
+				<br>We couldn't process your recharge. This is most likely due to incorrect recharge details provided. Write to us at hello@rechargery to rectify this.<br>
+			<% end %>
+			<br><br>
+			<%= link_to("Back to Dashboard",url_for({:controller => "users",:action =>"dashboard"}),:class => "button") %>
+		
+						
+				
+		<% else %>
+			Order doesn't exist.	
+		<% end %>
+	
+
+		
+		</content>
+	</section>
+</div>
+
+
+
+
+
+
+
+
+
+

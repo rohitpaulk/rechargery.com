@@ -1,0 +1,89 @@
+<script>
+
+
+$(function() {
+	$( "#ordersindexcontainer thead" ).on( "mouseenter", "th", function() {
+		tooltip = new Opentip($(this),$(this).attr("tooltip"),{ showOn: "null", targetJoint:"top", tipJoint:"bottom",target: $(this)});
+  		
+  		tooltip.show()
+	});	
+});
+
+
+
+
+</script>
+<div id="wrapper1">
+	
+	<section id="promotext" class="container">
+		<header class="title">
+			<h2>Orders</h2>
+			<span class="byline"></span> 
+		</header>
+	</section>
+
+	<% if flash[:alert] %>
+		<div id="flash">
+			<span id="alert"><%= flash[:alert] %></span>
+		</div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div id="flash">
+			<span id="notice"><%= flash[:notice] %></span>
+		</div>
+	<% end %>
+
+	<% if @user && @user.errors.any? %>
+		<div id="errors">
+			<% for message in @user.errors.full_messages %>
+				<%= message %> <br>
+			<% end %>
+		</div>
+	<% end %>
+
+	<section id="ordersindexcontainer" class="container clearfix">
+		<!--<header><h3>Orders</h3></header>-->
+				<content class="clearfix">
+					<% if @current_user.orders.any? %>
+						<table>
+							<thead>
+							<tr>
+								<th id="th_orderid" tooltip="This is the date you submitted the order. <br><br> Click on the Order date to view the order details.">Date</th>
+								<th id="th_shopname" tooltip="This is the shop that you placed your order in.">Shop</th>
+								<th id="th_desc" tooltip="This is the description that you provided for the order.">Description</th>
+								<th id="th_amount" tooltip="This is the recharge amount that you qualify for.<br> If your order is still pending review or the order confirmation failed, this value will be <strong>N/A</strong> (Not Applicable).">Amount</th>
+								<th id="th_status" tooltip="This is the status of your order.<br><br><strong>Pending Review</strong>:We've recieved your order and we're awaiting confirmation from the shop.<br><strong>Order Confirmed</strong>: Your order has been confirmed. You will receive your recharge once we receive final validation from the merchant. NOTE : This may take upto 30 days from the date of delivery depending on the respective store's return policy<br><strong>Recharge Successful</strong>: Your recharge is successful! To view the details of your recharge click on 'View Details'.<br><strong>Confirmation Failed</strong>: We weren't able to confirm your order. Click on 'View Details' to know more.<br><strong>Recharge Failed</strong>: We were able to confirm your order, but your recharge has failed. Click on 'View Details' to know more.<br>">Status</th>
+								<th id="th_actions" tooltip="These are your available actions.">Actions</th>
+							</tr>
+							</thead>
+							<% for order in @current_user.orders.order(created_at: :desc) do %>
+							
+								<tr>
+
+									<td><%= link_to(order.created_at.strftime("%d/%m/%Y %I:%M %p"),url_for({:controller => "orders",:action => "show", :id => order.id})) %></td>
+									<td><%= order.shopnametext %></td>
+									<td><%= order.productname %></td>
+									<td><%= order.amounttext %></td>
+									<td><%= order.statustext %></td>
+									<td><%= link_to(order.actiontext,url_for({:controller => "orders",:action => "show", :id => order.id})) %></td>
+									
+								</tr>
+
+
+							<% end %>
+						</table>
+					<% else %>
+						<h4>You haven't created any orders yet!</h4>
+					<% end %>
+					<h3>Create New Orders</h3>
+					<%# link_to("New FlipKart Order",newflipkart_path,:class => "button") %>
+					<%# link_to("New Amazon Order",newamazon_path,:class => "button") %>
+					<%# link_to("New Myntra Order",newmyntra_path,:class => "button") %>
+					<%= link_to("View Stores",stores_path,:class => "button") %>
+				</content>
+	</section>
+</div>
+
+
+
+

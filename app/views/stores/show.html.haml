@@ -1,0 +1,102 @@
+= render "common/header"
+
+%section.wrapper.body-wrapper{:data => "#{"adblock" if session[:adblock]}"}
+	%section.container.body-container.clearfix#singlestore
+		= render "common/flash_messages"
+		= render "stores/parts/singlestoreheader", {:store => @store}
+
+%section.singlestorerates
+
+
+
+= render "common/footer"
+/         <section class="wrapper body-wrapper">
+/             <section class="container body-container clearfix" id="singlestore">
+/                 // HEADER
+/
+/                 <section class="singlestorerates">
+/                     <section class="laptopbox">
+/                         <section class="laptop">
+/                             <h4>Order Total</h4>
+/                             <input type="text" value="549" id="orderamount">
+/                             <p class="currency">Rupees</p>
+/                             <p class="instructions">Enter an order amount above</p>
+/                             <a href="#" class="button">Shop Now</a>
+/                         </section>
+/                         <section class="note">
+/                             Talktime received may be lower on purchase of electronic items.
+/                         </section>
+/                     </section>
+/                     <section class="mobilebox">
+/                         <section class="mobile">
+/                             <h4>Talktime</h4>
+/                             <div id="rechargeamount">549</div>
+/                             <p class="currency">Rupees</p>
+/ <!--                            <a class="button">Shop Now</a>-->
+/                         </section>
+/                     </section>
+/                 </section>
+/             </section>
+/         </section>
+/         <section class="wrapper bottom-promo-wrapper">
+/             <section class="container bottom-promo-container">
+/                 For the latest Myntra offers, follow us on Facebook!
+/             </section>
+/         </section>
+/         <section class="wrapper footer-wrapper">
+/             <section class="container footer-container clearfix">
+/                 <ul class="footerlinks">
+/                     <a href="#"><li>Stores</li></a>
+/                     <a href="#"><li>How it works</li></a>
+/                     <a href="#"><li>FAQ</li></a>
+/                     <a href="#"><li>Testimonials</li></a>
+/                     <a href="#"><li>Contact</li></a>
+/                 </ul>
+/                 <ul class="sociallinks">
+/                     <a href="#"><li><img width=30 height=30 src="images/fbshadow.png"></li></a>
+/                     <a href="#"><li><img width=30 height=30 src="images/twittershadow.png"></li></a>
+/                 </ul>
+/                 <div class="footerbottom">
+/                     <a href="#">Rechargery.com</a> | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+/                 </div>
+/             </section>
+/         </section>
+
+/     </body>
+/ </html>
+
+
+- content_for :afterjs do
+	:javascript
+		function warnhim () {
+			$('#shopnow.detectable').addClass("disabled");
+			mytip = new Opentip($('#shopnow.detectable'),"Disable Adblock to shop on this store",{extends: "alert",target: true,tipJoint: "bottom"});
+			// Visited
+			$('#adblockchange1').html("You're using an Ad-Blocking plugin, and thus it is unlikely that your purchase will be tracked.");
+			$('#adblockchange1').addClass("error");
+			$('#adblockchange2').html("We'll let you know by email if it does!");
+		}
+
+		function ready () {
+			$('#toggletechnical').click(function (e) {
+				e.preventDefault();
+				console.log("hi");
+				$('.technicaldetails').toggle();
+			});
+			$('#shopnow').on('click',function(e){
+				window.location = $(this).attr("data-visited");
+			});
+			// Check for AdBlock Detection.
+			if ($('.body-wrapper').attr("data") == "adblock"){
+				warnhim();
+			}
+		}
+
+		var detectthebeast = function () {
+			detectblock(function() {
+				warnhim();
+			});
+		};
+		$(document).on('ready',detectthebeast());
+		$(document).on('page:change',ready());
+

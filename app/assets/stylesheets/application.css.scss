@@ -1,0 +1,695 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree ./general/
+ */
+
+$blackbackground :#333333;
+$lightgreen: #8DCB89;
+
+$darkgreen: #6FC06A;
+$whitetext:#FFF;
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+
+html, body {
+  height: 100%; }
+
+body {
+  
+  background: $blackbackground;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12pt;
+  font-weight: 400;
+  color: $blackbackground; 
+}
+
+*,*:before,*:after
+{
+	margin:0;
+	padding:0;
+}
+
+ul
+{
+	list-style: none;
+}
+
+p {
+  line-height: 180%; }
+
+a {
+  color: #0000FF; }
+
+a:hover {
+  text-decoration: none; }
+
+.container {
+	display: block;
+  margin: 0px auto 0px auto;
+  width: 1200px; }
+
+/*********************************************************************************/
+/* Button Style                                                                  */
+/*********************************************************************************/
+
+	.button
+	{
+		//font-size: 1.2em;
+		font-size: 18px;
+		display: inline-block;
+		//display:block;
+		margin:1em 1em 0 1em;
+		
+		padding: 1em 2em 1em 2em;
+		//background: #8DCB89;
+		background-color: $blackbackground;
+		border-radius: 8px;
+		letter-spacing: 0.20em;
+		line-height: 1.8em;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 400;
+		
+		
+		color: #FFF;	
+		transition:1s;	
+	}
+	
+	.button:hover
+	{
+		background-color:darken($darkgreen,20);
+		//background-color: $darkgreen;
+	}
+	.buttongreen
+	{
+		//font-size: 1.2em;
+		font-size: 18px;
+		display: inline-block;
+		//display:block;
+		margin:1em 1em 0 1em;
+		
+		padding: 1em 2em 1em 2em;
+		//background: #8DCB89;
+		background-color: $lightgreen;
+		border-radius: 8px;
+		letter-spacing: 0.20em;
+		line-height: 1.8em;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 400;
+		
+		color: #FFF;	
+		transition:1s;	
+	}
+	.buttongreen:hover
+	{
+		background-color:darken($darkgreen,20);
+		//background-color: $darkgreen;
+	}
+	
+	.button-small
+	{
+		padding: 0.9em 2em;
+		background: #8DCB89;
+		border-radius: 5px;
+		line-height: 1.8em;
+		font-size: 1em;
+	}
+
+/*********************************************************************************/
+/* Footer                                                                   */
+/*********************************************************************************/
+
+	#copyright
+	{
+		background-color: $blackbackground;
+		min-width:1200px;
+		overflow: hidden;
+		padding: 1.5em 0em;
+		//border-top: 1px solid rgba(255,255,255,0.08);
+	}
+	
+	#copyright p
+	{
+		letter-spacing: 0.20em;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 0.80em;
+		color: rgba(255,255,255,0.3);
+	}
+	
+	#copyright a
+	{
+		text-decoration: none;
+		color: rgba(255,255,255,0.6);
+		transition:0.3s;
+	}
+	#copyright a:hover
+	{
+		text-decoration: none;
+		color: rgba(255,255,255,0.8);
+		text-shadow: 0px 0px 2px white;
+	}
+	#social
+	{
+		a 
+		{
+			text-decoration: none;
+			color:rgba(255,255,255,0.8);
+			transition:0.5s;
+
+		}
+		a:hover
+		{
+			color:rgba(255,255,255,0.8);
+			text-shadow:0 0 2px white, 0 0 50px $lightgreen;
+		}
+		text-align: center;
+		color:rgba(255,255,255,0.8);
+		padding-top:1em;
+		padding-bottom: 0em;
+		font-size: 2em;
+		span 
+		{
+			padding:0 3em 0 3em ;
+		}
+	}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+#header-wrapper {
+  overflow: hidden;
+  min-width:1200px;
+  padding: 1em 0em 1em 0em;
+  background: $blackbackground; 
+  border-bottom: 2px solid $blackbackground;
+}
+
+#header
+{
+	position:relative;
+}
+#header:after
+{
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+ #header article
+ {
+ 	text-align: center;
+ }
+
+/*********************************************************************************/
+/* Title (Rechargery)                                                                         */
+/*********************************************************************************/
+#header header 
+{
+
+  padding: 0em 0em 0em 0em; /* Space on Top */
+  text-align: center;
+  float:left;
+  h1
+  {
+  	
+  	margin-left:1em;
+  	font-size: 3.5em;
+  	a
+  	{
+  		position:relative;
+  		transition:0.5s;  	
+  	}
+  	a:before /* Bolt Icon */
+  	{
+  		content:"\f0e7";
+  		overflow: hidden;
+  		//border:1px solid white;
+  		font-family: FontAwesome;
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: inherit;
+		-webkit-font-smoothing: antialiased;
+    	display:block;
+    	font-size: 1em;
+    	width:1em;
+    	height:1em;
+    	left:-0.8em;
+    	top:0.1em;
+    
+    position:absolute;
+    
+  	}
+  	
+  }
+
+  h1 a:hover
+  {
+  	text-shadow:0px 0px 30px $darkgreen;
+  	//text-shadow:0px 0px 30px white;
+
+  }
+  a
+  {
+  	text-decoration: none;
+  	color: #FFF;
+  }
+  span
+  {
+  	letter-spacing: 0.10em;
+  	text-transform: uppercase;
+  	font-size: 0.90em;
+  	color: rgba(255, 255, 255, 0.5);
+  	a 
+  	{
+  		color: rgba(255, 255, 255, 0.8);
+  		transition:1s;
+  	}
+  }
+}
+
+
+
+#header header span a {
+   }
+
+/*********************************************************************************/
+/* 		Menu                                                                     */
+/*********************************************************************************/
+#header nav
+{
+	float:right;
+	padding: 0.6em 0em 0.5em 0em;
+}
+#header nav ul
+{
+  text-align: center; 
+  li
+  {
+  	display: inline-block;
+  	a, span
+  	{
+  		display: inline-block;
+  		margin-left: 0.50em;
+  		padding: 1em 1.5em;
+  		letter-spacing: 0.1em;
+  		text-decoration: none;
+  		font-size: 0.90em;
+  		//font-weight: 600;
+  		font-weight: bold;
+  		text-transform: uppercase;
+  		outline: 0;
+  		color: #FFF;
+
+
+      //text-transform: uppercase;
+      //font-size: 0.9em;
+      //font-weight: bold;
+      //color:white;
+      //letter-spacing: 0.1em;
+  	}
+  	a /* Inactive Menu Items */
+  	{
+  		background: $blackbackground;
+  		border-radius: 8px;
+  		transition:0.5s;
+  	}
+
+  	a:hover /* Hover on Inactive Menu Items */
+  	{
+  		background: $darkgreen;
+  		border-radius: 8px;  		
+  	}
+  }
+  li.active a /* Active Menu Items */
+  {
+  	background: $darkgreen;
+  	border-radius: 8px;
+  	color: #FFF;	
+  }
+
+}
+
+/*****************************************/
+/***STATE*********************************/
+/*******************************************/
+
+#header aside
+{
+	position:absolute;
+	
+	right:1em;
+	
+	bottom:-0.5em;
+	
+	//border:1px solid white;
+	
+	letter-spacing: 0.10em;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0.9em;
+
+	color: rgba(255,255,255,0.3);
+	//color: rgba(255,255,255,1);
+	strong
+	{
+		font-weight: bold;
+	}
+	a 
+	{
+		text-decoration: none;
+		color: rgba(255,255,255,0.5);
+		transition:0.5s;
+
+	}
+	a:hover
+	{
+		color:rgb(255,255,255);
+	}
+
+
+}
+
+
+/*********************************************************************************/
+/* Form Style                                                                    */
+/*********************************************************************************/
+
+		form
+		{
+			text-align: center;
+			margin-bottom: 1em;
+		}
+		
+			form label
+			{
+				display: block;
+				text-align: center;
+				margin-bottom: 0.5em;
+				font-size: 2em;
+				font-weight: bold;
+				color:$blackbackground;
+			}
+			
+			form .submit
+			{
+							
+				margin: 0em auto 0em auto;
+				background: $blackbackground;
+				border-radius: 8px;
+				line-height: 1.5em;
+				font-size: 1.3em;
+
+			}
+		
+			input.text,
+			form select,
+			form textarea
+			{
+				position: relative;
+				-webkit-appearance: none;
+				display: block;
+				border: 0;
+				background: #fff;
+				background: rgba(255,255,255,0.75);
+				width: 400px;
+				border-radius: 0.50em;
+				margin: 1em auto;
+				padding: 1.50em 1em;
+				box-shadow: inset 0 0.1em 0.1em 0 rgba(0,0,0,0.05);
+				border: solid 1px rgba(0,0,0,0.15);
+				-moz-transition: all 0.35s ease-in-out;
+				-webkit-transition: all 0.35s ease-in-out;
+				-o-transition: all 0.35s ease-in-out;
+				-ms-transition: all 0.35s ease-in-out;
+				transition: all 0.35s ease-in-out;
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 1em;
+				outline: none;
+			}
+
+				input.text:hover,
+				form select:hover,
+				form textarea:hover
+				{
+				}
+
+				input.text:focus,
+				form select:focus,
+				form textarea:focus
+				{
+					box-shadow: 0 0 2px 1px #E0E0E0;
+					background: #fff;
+				}
+				
+				form textarea
+				{
+					min-height: 12em;
+				}
+
+				form .formerize-placeholder
+				{
+					color: #555 !important;
+				}
+
+				form ::-webkit-input-placeholder
+				{
+					color: #555 !important;
+				}
+
+				form :-moz-placeholder
+				{
+					color: #555 !important;
+				}
+
+				form ::-moz-placeholder
+				{
+					color: #555 !important;
+				}
+
+				form :-ms-input-placeholder
+				{
+					color: #555 !important;
+				}
+
+				form ::-moz-focus-inner
+				{
+					border: 0;
+				}
+			.submitbutton
+	{
+		
+	    cursor: pointer;
+		border:0;
+		display: inline-block;
+		margin-top: 1em;
+		padding: 1em 2em 1em 2em;
+		//background: #8DCB89;
+		background-color: $blackbackground;
+		border-radius: 8px;
+		letter-spacing: 0.20em;
+		line-height: 1.8em;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 1.2em;
+		color: #FFF;	
+		transition:1s;	
+	}
+	.submitbutton:hover
+	{
+		background-color: darken($darkgreen,20);
+	}
+	
+/******************************/
+/*ERRORS*/
+/**************************/
+#errors
+{
+	width:600px;
+	border-radius: 10px;
+	padding: 1em;
+	margin:0px auto 0px auto;
+	text-align: center;
+	
+	box-shadow: 2px 2px 5px $blackbackground;
+	background: #E74E59;
+	color: white;
+	font-weight: bold;
+}
+#flash
+{
+	padding:0.5em;
+	width:400px;
+	margin: 0px auto 1em auto;
+	text-align: center;
+	font-size:1.5em;
+	background-color: $darkgreen;
+	border-radius: 10px;
+}
+#flash #notice
+{
+	color:$blackbackground;
+	font-weight: bold;
+
+}
+#flash #alert
+{
+	//color: #E74E59;
+	//color:#797eb9;
+	color:white;
+	
+	font-weight: bold;
+}
+
+/*************************/
+/* Wrappers */
+/*8***************/
+#wrapper1
+{
+	background-color: $lightgreen;
+	min-width: 1200px;
+	width:100%;
+}
+#wrapper2
+{
+	background-color: $blackbackground;
+	min-width: 1200px;
+	width:100%;
+}
+#wrapper3
+{
+	background-color: $lightgreen;
+	min-width: 1200px;
+	width:100%;
+}
+#wrapper4
+{
+	background-color:$blackbackground;
+	min-width: 1200px;
+	width:100%;
+}
+/***************************/
+/****** PROMO TEXT **********/
+/*****************************/
+#promotext
+	{
+		overflow: hidden;
+		padding: 2em 0em  0em 0em;
+		text-align: center;
+		//color: rgba(255,255,255,0.9);
+		color: lighten($blackbackground,5);
+		.button
+		{
+			margin-bottom: 2em;
+		}
+	}
+
+	
+
+	
+	#promotext article
+	{
+		padding: 1em 8em;	
+	}
+
+	#promotext header
+	{
+		margin-bottom: 1em;
+	}
+	
+	#promotext header h2
+	{
+		font-size: 2.8em;
+		color: rgba(255,255,255,1);
+		
+	}
+	
+	#promotext header .byline
+	{
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 1.1em;
+		//color: #6F6F6F;
+		//color:lighten($blackbackground,20);
+		color:$blackbackground;
+	}
+
+
+/*****************************/
+/*** TABLE *******************/
+/****************************/
+table
+{
+	*border-collapse: collapse; /* IE7 and lower */
+	border-spacing: 0; 
+	td, th 
+	{ 
+		border: 1px solid transparent; /* No more visible border */
+		height: 35px; 
+		transition: all 0.3s;  /* Simple transition for hover effect */
+    }
+    tr:first-child th:first-child 
+    { 
+  		border-radius: 10px 0 0 0; 
+  	} 
+	tr:first-child th:last-child 
+	{ 
+		border-radius: 0 10px 0 0; 
+	}
+	tr:last-child td:first-child 
+	{ 
+		border-radius: 0 0 0 10px; 
+	} 
+	tr:last-child td:last-child 
+	{ 
+		border-radius: 0 0 10px 0; 
+	}	
+	tr td:hover /* Hover cell effect! */
+	{ 
+		background: darken($darkgreen,20); color: #FFF; 
+	} 
+	th
+	{
+		background: $blackbackground; /* Light grey background */
+		color:white;
+		font-weight: bold; /* Make sure they're bold */	
+		text-transform: uppercase;
+	}
+	td 
+	{
+		background: $darkgreen; /* Lighter grey background */
+		text-align: center; /* Center our text */
+	}
+	a
+	{
+		text-decoration:none;
+		color:white;
+		font-weight: bold;
+	}
+}

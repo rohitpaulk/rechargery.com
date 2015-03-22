@@ -1,0 +1,30 @@
+@font-face{
+    font-family:"FiraSans";
+    
+    font-weight:normal;
+    font-style:normal;
+
+    src: //url(<%= asset_path('FiraSansOT-Regular.svg#fira_sans_otregular') %>) format('svg'),
+         url(<%= asset_path('FiraSansOT-Regular.woff') %>) format('woff'), /* Modern Browsers */
+         url(<%= asset_path('FiraSansOT-Regular.ttf') %>)  format('truetype');
+}
+@font-face{
+    font-family:"FiraSans";
+    //src:url(<%= asset_path('FiraSansOT-Light.otf') %>);
+    font-weight:100;
+    font-style:normal;
+    src: //url(<%= asset_path('FiraSansOT-Light.svg#fira_sans_otlight') %>) format('svg'),
+         url(<%= asset_path('FiraSansOT-Light.woff') %>) format('woff'), /* Modern Browsers */
+         url(<%= asset_path('FiraSansOT-Light.ttf') %>)  format('truetype');
+}
+@font-face{
+    font-family:"FiraSans";
+    //src:url(<%= asset_path('FiraSansOT-Bold.otf') %>);
+    font-weight:bold;
+    font-style:normal;
+
+    src: url(<%= asset_path('FiraSansOT-Bold.woff') %>) format('woff'),
+         //url(<%= asset_path('FiraSansOT-Bold.svg#fira_sans_otbold') %>) format('svg'),
+          /* Modern Browsers */
+         url(<%= asset_path('FiraSansOT-Bold.ttf') %>)  format('truetype');
+}

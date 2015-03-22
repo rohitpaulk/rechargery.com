@@ -1,0 +1,385 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$blackbackground :#333333;
+$lightgreen: #8DCB89;
+
+$darkgreen: #6FC06A;
+$whitetext:#FFF;
+
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+#home-header-wrapper {
+	width:100%;
+	min-width:1200px;
+  overflow: hidden;
+  padding: 2em 0em 5em 0em;
+  background: $blackbackground; 
+}
+#home-header-wrapper .button
+{
+  background-color: lighten($blackbackground,10);
+}
+#home-header-wrapper .button:hover
+{
+  background-color: darken($darkgreen,20);
+}
+ #homeheader article
+ {
+ 	text-align: center;
+ }
+
+/*********************************************************************************/
+/* Title (Rechargery)                                                                         */
+/*********************************************************************************/
+#homeheader header 
+{
+
+  padding: 6em 0em 1em 0em; /* Space on Top */
+  text-align: center;
+
+  a
+  {
+    text-decoration: none;
+    color: #FFF;
+  }
+
+  h1
+  {
+    
+    
+  	font-size: 3.5em;
+  	a
+  	{
+      position:relative;
+  		transition:0.5s;  	
+  	}
+  	
+  }
+  h1 a:before
+  {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    content:"\f0e7";
+    font-size: 1em;
+    width:1em;
+    left:50%;
+    margin-left: -0.5em;
+    position:absolute;
+    top:-1em;
+    
+  }
+  
+  
+
+  h1 a:hover
+  {
+  	text-shadow:0px 0px 30px $darkgreen;
+  	//text-shadow:0px 0px 30px white;
+
+  }
+  
+  span
+  {
+  	letter-spacing: 0.10em;
+  	text-transform: uppercase;
+  	font-size: 0.90em;
+  	color: rgba(255, 255, 255, 0.5);
+  	a 
+  	{
+  		color: rgba(255, 255, 255, 0.8);
+  		transition:0.5s;
+  	}
+    a:hover
+    {
+      text-shadow:0px 0px 1px white;
+    }
+  }
+}
+
+#homeheader article
+{
+  h4
+  {
+    
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.6em;
+    color: #6F6F6F;
+    margin-top: 1em;
+  }
+}
+
+#homeheader header span a {
+   }
+
+/*********************************************************************************/
+/* 		Menu                                                                     */
+/*********************************************************************************/
+
+#homeheader nav ul
+{
+  text-align: center; 
+  li
+  {
+  	display: inline-block;
+  	a, span
+  	{
+  		display: inline-block;
+  		margin-left: 1em;
+  		padding: 1em 1.5em;
+  		//letter-spacing: 0.20em;
+  		text-decoration: none;
+  		//font-size: 0.90em;
+  		//font-weight: 600;
+  		//text-transform: uppercase;
+  		outline: 0;
+  		//color: #FFF;		
+
+      //text-transform: uppercase;
+      //font-size: 1em;
+      font-weight: bold;
+      //color:white;
+
+
+      text-transform: uppercase;
+      font-size: 1em;
+      //font-weight: bold;
+      color:white;
+      letter-spacing: 0.1em;
+  	}
+  	a /* Inactive Menu Items */
+  	{
+  		background: $blackbackground;
+  		border-radius: 8px;
+  		transition:0.5s;
+  	}
+
+  	a:hover /* Hover on Inactive Menu Items */
+  	{
+  		background: $darkgreen;
+  		border-radius: 8px;  		
+  	}
+  }
+  li.active a /* Active Menu Items */
+  {
+  	background: $darkgreen;
+  	border-radius: 8px;
+  	color: #FFF;	
+  }
+
+}
+
+/*********************************************************************************/
+/* Welcome Wrapper                                                  */
+/*********************************************************************************/
+
+	#welcomewrapper
+	{
+		min-width:1200px;
+		background: $lightgreen;
+	}
+
+	#welcome
+	{
+		overflow: hidden;
+		padding: 4em 0em  4em 0em;
+		text-align: center;
+		//color:white;
+    color: lighten($blackbackground,10);
+    font-weight: bold;
+	}
+
+  
+	#welcome article
+	{
+		padding: 0em 0em;	
+	}
+
+	#welcome header
+	{
+		//margin-bottom: 3em;
+	}
+	
+	#welcome header h2
+	{
+		font-size: 2.8em;
+		color: rgba(255,255,255,1);
+		
+	}
+	
+	#welcome header .byline
+	{
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 1.1em;
+		//color: #6F6F6F;
+		//color:lighten($blackbackground,20);
+		color:$blackbackground;
+	}
+
+
+
+  
+/*********************************************************************************/
+/* PromoImgs                                                                  */
+/*********************************************************************************/
+
+  #wrapper4
+  {
+    padding-top: 3em;
+  }
+  #howitworks h3
+  {
+    display: block;
+    padding-bottom: 1em;
+    text-transform: uppercase;
+    font-size: 1em;
+    
+    color:white;
+    //color: rgba(0,0,0,0.6);
+    padding-top: 1em;
+  }
+  .title
+  {
+    text-align: center;
+    margin-bottom: 0em;
+  }
+  
+  .title h2
+  {
+    font-size: 2.8em;
+    //color: rgba(0,0,0,0.8);
+    color: rgba(255,255,255,1);
+  }
+  
+  .title .byline
+  {
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.1em;
+    color: #6F6F6F;
+  }
+
+
+  #howitworks
+  {
+    position:relative;
+    padding:2em 0 0em 0;
+    width:1050px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+	.promoimgbox
+  {
+    
+    height:300px;
+    width:300px;
+    margin-left: 25px;
+    margin-right: 25px;
+    float:left;
+    text-align: center;
+    a 
+    {
+      text-decoration: none;
+
+    }
+    
+  }
+	.promoimg
+  {
+    //background-color: white;
+    background-color: $blackbackground;
+    height:200px;
+    width:200px;
+    border-radius: 50%;
+    margin: 0px auto;
+    //border:1px solid $blackbackground;
+    border:2px solid rgba(255,255,255,0.5);
+
+    color:white;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    
+    font-size: 8em;
+    line-height: 200px;
+    text-align: center;    
+    transition:0.5s;
+
+  }
+
+	.promoimg:hover
+  {
+    text-shadow:0px 0px 5px $lightgreen,0px 0px 50px $lightgreen,0px 0px 100px $lightgreen;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 10px white, inset 0 0 12px 10px $lightgreen;
+
+  }
+	
+/**********************************************/
+/* RATES */
+/**********************************************/	
+
+#slidercontainer
+  {
+    text-align:center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    #myntrarate
+    {
+      color:white;
+    }
+    #ratesbox
+    {
+        background-color: $blackbackground;
+
+        h4
+        {
+          font-size: 2em;
+          color:rgba(255,255,255,0.5);
+          span 
+          {
+            color:white;
+          }
+        }
+        
+        width: 600px;  
+        height: auto;  
+    
+
+        position: relative;        
+        margin:10px auto 5px auto;
+
+        padding:2em 0px 2em 0px;
+        border-radius:20px;
+        #sliderbox
+        {
+          display:block;
+          width:518px;
+          position:relative;
+          margin:1em auto 1em auto;
+        }
+    }
+    
+        
+  }
+  #slidercontainer .button
+    {
+      background-color: lighten($blackbackground,10);
+    }  
+    #slidercontainer .button:hover
+    {
+      background-color: darken($darkgreen,20);
+    }  

@@ -1,0 +1,86 @@
+
+<div id="wrapper1">
+	<% render partial: "sessions/state" %>
+	<section id="promotext" class="container">
+		<header class="title">
+			<h2>Are you ready for your free recharge?</h2>
+			<span class="byline">Register/Login Below</span> 
+		</header>
+		<!-- <article>
+			<p>
+				
+					Whenever you shop online on <a>Amazon.in</a> or <a>Flipkart.com</a>, do it through <strong>RECHARGERY</strong> and you get free echarges.					
+				</p>
+				
+			</article>-->
+	</section>
+</div>
+
+
+
+
+
+
+
+
+	
+
+
+<div id="loginwrapper">
+	<% if flash[:alert] %>
+		<div id="flash">
+			<span id="alert"><%= flash[:alert] %></span>
+		</div>
+	<% end %>
+	<% if flash[:notice] %>
+		<div id="flash">
+			<span id="notice"><%= flash[:notice] %></span>
+		</div>
+	<% end %>
+
+	<% if @user && @user.errors.any? %>
+		<div id="errors">
+			<% for message in @user.errors.full_messages %>
+				<%= message %> <br>
+			<% end %>
+		</div>
+	<% end %>
+		<div id="logincontainer" class="container clearfix">
+			<section id="login">
+				<header><h3>Login</h3></header>
+				<content>
+					<%= form_tag(url_for({:controller => 'sessions',:action => 'create'}), :name => "loginform") do %>
+							<%= hidden_field_tag("return_to",@return_to) %>
+					
+							<%= text_field_tag("email", nil, :class => "text", :placeholder => "Email") %>
+							<%= password_field_tag("password", nil, :class => "text", :placeholder => "Password") %>
+							<%= submit_tag("Log In",:class => "submitbutton") %>
+							<br><br><%= link_to("Forgot Password",url_for({:controller => "users",:action => "forgotpassword"}),:class => "") %><br>
+							
+					
+					<% end %>
+
+				</content>
+
+			</section>
+			<section id="signup">
+				<header><h3>Register</h3></header>
+				<content>
+					<%= form_tag(url_for({:controller => 'users',:action => 'createuser'}), :name => "signupform") do %>
+
+							<%= text_field_tag("name", nil, :class => "text", :placeholder => "Name") %>
+							<%= text_field_tag("email", nil, :class => "text", :placeholder => "Email") %>
+							<%= password_field_tag("password", nil, :class => "text", :placeholder => "Password") %>
+							<%= password_field_tag("password_confirmation", nil, :class => "text", :placeholder => "Password Again") %>
+							<%= text_field_tag("phone", nil, :class => "text", :placeholder => "Phone Number") %>
+						
+							<%= submit_tag("Register",:class => "submitbutton") %>
+					<% end %>
+					
+				</content>
+			</section>
+		</div>
+	</div>
+
+
+

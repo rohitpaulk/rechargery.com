@@ -1,0 +1,8 @@
+---
+# The Skylight ID for the application.
+application: QDvpSVmhSn7C
+
+# The authentication token for the application.
+# Configured in Environment variable
+# authentication: XXX
+

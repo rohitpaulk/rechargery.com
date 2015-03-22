@@ -1,0 +1,46 @@
+@import "shared/_colors";
+@import "shared/_fonts";
+@import "shared/_resets";
+@import "shared/_common";
+
+// @import "vendor/select-theme-default.scss";
+// @import "vendor/odometer-theme-default";
+
+@import "layout/_navigation";
+@import "layout/_footer";
+@import "layout/_basic";
+
+@import "parts/_stores";
+@import "parts/_singlestore";
+@import "parts/_loading";
+@import "parts/_dashboard";
+
+// @import "partials/_home";
+// @import "partials/_phone";
+// @import "partials/_stores";
+// @import "partials/_singlestore";
+// @import "partials/_account";
+// @import "partials/_dashboard";
+// @import "partials/_footer";
+
+// #overlay{
+//     background-image:url("../images/dashboard.png");
+//     position:absolute;
+//     background-position: 105px -120px;
+//     width:100%;
+//     height:800px;
+//     top:0;
+//     left:0;
+//     opacity:0.3;
+//     z-index: 10;
+//     display:none;
+// }
+
+// .body-wrapper{
+//     min-height:400px;
+
+// }
+// body{
+//     background-image:url("../images/bluebg.jpg");
+//     background-position:center center;
+// }

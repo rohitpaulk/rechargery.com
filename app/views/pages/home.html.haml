@@ -1,0 +1,68 @@
+- content_for :afterjs do
+  <script>
+  document.body.scrollReveal = new scrollReveal({init:false});
+  var ready = function(){
+  // Scroll Reveal
+  document.body.scrollReveal.init()
+  // Moving Background
+  $('.home-header').mousemove(function(e){
+  var midpointX = $(window).width()/2
+  var midpointY = $(window).height()/2
+  var mousePosX = ((e.pageX-midpointX)/$(window).width())*100;
+  var mousePosY = ((e.pageY-midpointY)/$(window).height())*100;
+  var xPos = mousePosX/40 + 50;
+  var yPos = mousePosY/60 + 50;   
+  $('.home-header').css('backgroundPosition', xPos+'% '+ yPos+'%');
+  }); 
+  };
+  // Run the ready function either on first load, or turbolinks load.  
+  $(document).on('ready',ready());
+  $(document).on('page:load',ready());  
+  </script>
+
+
+%header.home-header
+  %section.container.home-navigation-container.navigation-container
+    %div.home-navigation.navigation
+      %h1.Navigation-logo
+        %a{:href=> "/"} Rechargery
+      %nav.Navigation-left
+        %a.Navigation-item{:href=> stores_path} Stores
+        %a.Navigation-item{:href=> howitworks_url} How it works
+        %a.Navigation-item{:href=> testimonials_url} Testimonials
+        %a.Navigation-item{:href=> "mailto:hello@rechargery.com"} Contact
+      %nav.Navigation-right
+        %a.Navigation-item{:href=> new_signup_url} Sign up
+        - if(current_user)
+          %a.Navigation-item.Navigation-button{:href=> dashboard_url} Dashboard
+        - else
+          %a.Navigation-item.Navigation-button{:href=> new_login_url} Login
+
+  %section.container.header-content-container
+    %h2.header-title{"data-scroll-reveal" => "after 0.5s move 0px"}
+      Get <span class="green">paid</span> to shop.
+    %h3.header-lead{"data-scroll-reveal" => "after 1.5s move 0px"}
+      Free talktime when you shop online.
+    %div.header-action{"data-scroll-reveal" => "after 2.5s move 0px"}
+      %a.button.green-button{:href => stores_path} Get Started
+%section#homefooter
+  %p 
+    Copyright (c) 2013 
+    <a href="/">Rechargery.com</a>.
+    All rights reserved. 
+    | 
+    %a{:href => "#{docs_tos_url}"} Terms of Service
+    | 
+    %a{:href => "#{docs_privacy_url}"} Privacy Policy
+
+
+<!-- Start of GetKudos Script -->
+<script>
+(function(w,t,gk,d,s,fs){if(w[gk])return;d=w.document;w[gk]=function(){
+(w[gk]._=w[gk]._||[]).push(arguments)};s=d.createElement(t);s.async=!0;
+s.src='//static.getkudos.me/widget.js';fs=d.getElementsByTagName(t)[0];
+fs.parentNode.insertBefore(s,fs)})(window,'script','getkudos');
+
+getkudos('create', 'rechargery');
+</script>
+<!-- End of GetKudos Script -->

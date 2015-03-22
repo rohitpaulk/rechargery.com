@@ -1,0 +1,60 @@
+- content_for :afterjs do
+  = javascript_include_tag("new/ratesslider.js")
+  <script>
+  document.body.scrollReveal = new scrollReveal({init:false});
+  var ready = function(){
+  document.body.scrollReveal.init()
+  };  
+  $(document).on('ready',ready());
+  $(document).on('page:load',ready());  
+  </script>
+= render partial: "pages/newpagesheader"
+%section.promo-header
+  %section.container
+    %h2{"data-scroll-reveal" => ""} How it works
+    %p{"data-scroll-reveal" => ""} Quite simple actually.<br/><br/> Every time you shop through rechargery we receive a commission for generating a sale. As a reward for using our service we pass most of this commission back to you as talktime.
+%section.promo-3steps  
+  %section.container.promo-steps.grid1of3container.clearfix
+    %a.grid1of3element.promostep{:href => "#{new_signup_url}","data-scroll-reveal" => "after 0.5s"}
+      %div.promostep-img-box
+        %img{:src => asset_url('promostep1.svg')}
+      %div.promostep-content{}
+        %h3 Join Rechargery
+        %p Joining rechargery is simple and free! All we'll need is your phone number and email ID.
+        %span.promostep-action Signup Now
+    %a.grid1of3element.promostep{:href => "#{new_signup_url}","data-scroll-reveal" => "after 1s"}
+      %div.promostep-img-box
+        %img{:src => asset_url('promostep2.svg')}
+      %div.promostep-content{}
+        %h3 Shop at a store
+        %p Click through to any of the popular stores such as Amazon and Myntra and shop as usual.
+        %span.promostep-action Start Shopping
+    %a.grid1of3element.promostep{:href => "#{new_signup_url}","data-scroll-reveal" => "after 1.5s"}
+      %div.promostep-img-box
+        %img{:src => asset_url('promostep3.svg')}
+      %div.promostep-content{}
+        %h3 Get free talktime!
+        %p We'll track your order and you'll receive your free talktime! It's hard to believe, we know.
+        %span.promostep-action Signup Now
+%section.promo-slider
+  %section.container.slidercontainer
+    %div#OrderAmount
+      %span.label Order total:
+      %span.currency Rs 
+      %span#RatesOrderValue 123
+    %section.sliderform.clearfix
+      %div.storesselector
+        %select#storeinput
+          %option{:value=> 1} Flipkart
+          %option{:value=> 2} Myntra
+          %option{:value=> 3} Amazon
+          
+      %div#RatesSlider
+    %div#RechargeAmount
+      %span.label Recharge amount:
+
+      %span#RechargeValue Rs 60
+
+
+= render partial: "pages/newfooter"
+

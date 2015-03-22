@@ -1,0 +1,83 @@
+<div id="wrapper1">
+	<section id="promotext" class="container">
+			<header class="title">
+				<h2>Edit Order Details</h2>
+				<span class="byline"></span> 
+			</header>
+	</section>
+	<div id="editprofilecontainer" class="container clearfix">
+
+	<% if @order.shopname == 1 %>
+
+		<%= form_tag(url_for({:controller => 'orders',:action => 'update'})) do %>
+
+			<% if flash[:alert] %>
+				<div id="flash">
+					<span id="alert"><%= flash[:alert] %></span>
+				</div>
+			<% end %>
+			<% if flash[:notice] %>
+				<div id="flash">
+					<span id="notice"><%= flash[:notice] %></span>
+				</div>
+			<% end %>
+
+			<% if @order && @order.errors.any? %>
+				<div id="errors">
+					<% for message in @order.errors.full_messages %>
+						<%= message %> <br>
+					<% end %>
+				</div>
+			<% end %>
+
+			
+			<label>Amazon.in Order Number</label>
+			<%= text_field_tag("orderid", nil, :class => "text", :placeholder => "Order ID", :value => @order.orderid) %>
+			
+			<label>Amazon Account Email</label>
+			<%= text_field_tag("emailused", nil, :class => "text", :placeholder => "Email Used", :value =>@order.emailused) %>
+
+			<label>Order Total</label>
+			<%= text_field_tag("ordertotal", nil, :class => "text", :placeholder => "Order Total", :value =>@order.ordertotal) %>
+
+
+			<label>Description (Optional)</label>
+			<%= text_field_tag("productname", nil, :class => "text", :placeholder => "Description (Optional)", :value => @order.productname) %> 
+
+			<%= submit_tag("Update Details",:class => "submitbutton") %>
+		
+		<% end %>
+
+	<% else %>
+	
+
+
+		<%= form_tag(url_for({:controller => 'orders',:action => 'update'}),:id => @order.id) do %>
+
+			<% if flash[:alert] %>
+				<div id="flash">
+					<span id="alert"><%= flash[:alert] %></span>
+				</div>
+			<% end %>
+			<% if flash[:notice] %>
+				<div id="flash">
+					<span id="notice"><%= flash[:notice] %></span>
+				</div>
+			<% end %>
+
+			<% if @order && @order.errors.any? %>
+				<div id="errors">
+					<% for message in @order.errors.full_messages %>
+						<%= message %> <br>
+					<% end %>
+				</div>
+			<% end %>
+
+			<%= label_tag("Description") %>
+			<%= text_field_tag("productname", nil, :class => "text", :placeholder => "Description (Optional)", :value => @order.productname) %>
+		
+			<%= submit_tag("Update Details",:class => "submitbutton") %>
+		<% end %>
+	<% end %>
+	</div>
+</div>

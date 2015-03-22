@@ -1,0 +1,150 @@
+.login-wrapper{
+    background:$greybackground;
+    color:rgb(62,63,58);
+    padding-top: 40px;
+    padding-bottom:40px;    
+}
+.login-container{
+	header{
+	    text-align:center;
+	    color:white;
+	    font-family:"FiraSans";
+	    
+	    margin-bottom:20px;
+	    h1{
+	        text-transform:uppercase;
+	        font-weight:bold;
+	        font-size:3em;
+	    }
+	    h2{
+	        font-weight:bold;
+	        font-size:2em;
+	    }	    
+	    h3{
+	        font-weight:100;
+	        font-size:1em;
+	    }
+	}
+	a.facebook{
+        display:block;
+        width:300px;
+        text-align:center;
+        font-family:"FiraSans";
+        border-radius:5px;
+        color:#F8F5F0;
+        font-size:1.2em;
+        font-weight:bold;    
+        margin-left:auto;
+        margin-right:auto;
+        padding:0.7em 1em 0.7em 1em;
+            
+        margin-bottom:1em;
+        text-transform:uppercase;
+        background-color:#3B5999;
+        transition: all 300ms;
+        &:hover{
+            background-color:#2269CA;
+            cursor:pointer;                    
+        }
+    }
+	.loginflashbox{
+        min-height:50px;
+        width:400px;
+        margin:0px auto 10px auto;
+        text-align:center;
+        padding:1em;
+        border-radius:5px;
+        color:white;
+	}
+	.alertbox{
+		background-color:$red;
+	}
+	.noticebox{
+		background-color:$lightblue;
+	}
+	.loginfieldsbox{
+	    width:400px;
+	    margin:0px auto 0px auto;
+	    padding:20px 20px 15px 20px;
+	    border-radius:5px;
+	    background-color:$cream;
+	}
+	.loginbuttonbox{
+	    width:400px;
+	    margin:auto;
+	    text-align:center;
+	    padding-top:20px;
+	    
+	}
+	.loginform{
+	    font-family:"FiraSans";
+	    label{
+	        display:block;
+	        text-transform:uppercase;
+	        font-weight:normal;
+	        font-size:1.2em;
+	        margin-bottom:10px;
+	        font-weight:bold;
+	    }
+	    input:-webkit-autofill {
+	       -webkit-box-shadow:0 0 0 50px $lightgrey inset;
+ 		   color: white;
+ 		   -webkit-text-fill-color: white;
+		}
+	    input[type="text"],input[type="password"]{
+	        font-family:"FiraSans",sans-serif;
+	        width:100%;
+	        background-color:rgba(0,0,0,0.1);
+	        height:50px;
+	        border-radius:5px;
+	        padding:10px 10px 10px 13px;
+	        font-size:1em;
+	        transition:all 200ms;    
+	        margin-bottom:10px;
+	        
+	    }
+	    input[type="text"]:focus,input[type="password"]:focus{
+	        outline:none;
+	        background-color:$lightgreen;
+	        color:white;    
+	    }
+	    input[type="text"]:focus::-webkit-input-placeholder,
+	    input[type="password"]:focus::-webkit-input-placeholder{
+	        color:rgba(255,255,255,0.7);
+	    }
+	    button{
+	        width:100%;
+	        font-family:"FiraSans";
+	        border-radius:5px;
+	        color:$cream;
+	        font-size:1.2em;
+	        font-weight:bold;    
+	        padding:0.7em 1em 0.7em 1em;
+	        text-transform:uppercase;
+	        background-color:$lightgreen;
+	        transition: all 300ms;
+	        &:hover{
+	            
+	            box-shadow:0px 0px 2px 0px $darkergreen;
+	            
+	            background-color:$darkergreen;
+	            cursor:pointer;
+	            
+	        }
+	    }
+	}
+	footer{
+	    width:400px;
+	    margin: 30px auto 0 auto;
+	    font-family:"FiraSans",sans-serif;
+	    color:$cream;
+	    font-weight:100;
+	    text-transform:uppercase;
+	    font-size:0.8em;
+	 	a:hover{
+	 	    text-decoration:underline;
+	 	}   
+	}
+
+
+}

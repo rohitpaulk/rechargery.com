@@ -1,0 +1,89 @@
+.docswrapper{
+	background-color:$cream;
+}
+
+.docscontainer{
+	min-height:500px;
+	color:$greybackground;
+	padding-top:50px;// Add a content bar if needed
+	padding-bottom:50px;
+	.leftpane{
+		width:70%;
+		float:left;
+		padding:15px;
+		h2{
+			font-weight: bold;
+			text-transform:uppercase;
+			margin:0px 0px 10px 0em;
+			font-size: 3em;
+			color:$textblack;
+		}
+		div.date{
+			font-size:1em;
+			font-weight: 100;
+			color:$textdarkbrown;
+		}
+		p.intro{
+			margin:15px 0em 30px 0em;
+			font-size:1em;
+			font-weight: 100;
+			color:$textdarkbrown;
+		}
+		div.content{
+
+			margin:10px 0em 20px 0em;
+			h4{
+				color:$textblack;
+				font-size: 1.2em;
+				font-weight:bold;
+				margin: 20px 0px 10px 0px;
+			}
+			p{
+				margin: 10px 0px 10px 0px;
+				color:$greybackground;
+				font-size:1.1em;
+				font-weight: 100;
+			}
+			ul{
+				color:$greybackground;
+				font-size:1.1em;
+				font-weight: 100;	
+			}
+		}	
+	}
+	.rightpane{
+		padding:15px;
+		width:30%;
+		float:left;
+		h4.menutitle{
+			padding-left:10px;
+			font-weight: 100;
+			margin:20px 0px 0px 0px;
+			padding-bottom:10px;
+			text-transform:uppercase;
+			border-bottom:1px solid $lightbrown;
+		}
+		ul.menu{
+			list-style: none;
+			padding-left:0px;
+			li{
+				padding-left:10px;
+				
+				height:45px;
+				
+				border-bottom:1px solid $lightbrown;
+				a{
+					line-height: 45px;
+					color:$darkgreen;
+					text-decoration: underline;						
+					font-weight:100;
+					&:hover{
+						color:$darkergreen;
+					}
+				}
+			}
+
+		}
+
+	}
+}

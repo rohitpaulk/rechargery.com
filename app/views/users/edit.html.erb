@@ -1,0 +1,40 @@
+<div id="wrapper1">
+	<section id="promotext" class="container">
+			<header class="title">
+				<h2>Edit Profile</h2>
+				<span class="byline"></span>
+			</header>
+	</section>
+	<div id="editprofilecontainer" class="container clearfix">
+		<%= form_tag (url_for({:controller => 'users',:action => 'update'})) do %>
+
+			<% if flash[:alert] %>
+				<div id="flash">
+					<span id="alert"><%= flash[:alert] %></span>
+				</div>
+			<% end %>
+			<% if flash[:notice] %>
+				<div id="flash">
+					<span id="notice"><%= flash[:notice] %></span>
+				</div>
+			<% end %>
+
+			<% if @user && @user.errors.any? %>
+				<div id="errors">
+					<% for message in @user.errors.full_messages %>
+						<%= message %> <br>
+					<% end %>
+				</div>
+			<% end %>
+
+			<%= label_tag("Name") %>
+			<%= text_field_tag("name", nil, :class => "text", :placeholder => @current_user.name, :value => @current_user.name) %>
+			<%= label_tag("Phone") %>
+			<%= text_field_tag("phone", nil, :class => "text", :placeholder => "Phone", :value =>@current_user.phone) %>
+			<%= label_tag("Mobile Operator") %>
+			<%= select_tag "phone_operator", options_for_select(Recharge.providers, @current_user.phone_operator||"Airtel") %>
+
+			<%= submit_tag("Update Details",:class => "submitbutton") %>
+		<% end %>
+	</div>
+</div>

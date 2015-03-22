@@ -1,0 +1,67 @@
+= render "common/header", :active => 'stores'
+
+%section.wrapper.body-wrapper{:data => "#{"adblock" if session[:adblock]}"}
+	%section.container.body-container.clearfix#storescontainer
+		= render "common/flash_messages"
+		%section.promoheader
+			%h3 Choose from our range of handpicked stores
+		%section.storecategories
+		- @categories.each do |category|
+			%section.storecategory.clearfix
+				%section.categorydetails
+					%h4
+						= category.name
+					%p
+						= category.short_description
+				%section.categorystores.clearfix
+				- category.storestoshow.each do |store|
+					%section.storethumb{:class => "#{"detectable" unless store.adblock_compatibility}"}
+						%div.thumbframe
+							%section.storeicon
+								%img{:src => asset_url("stores/#{store.image_name}"),:width => 50,:height => 50}
+							/%a{:href=> "#{store_path(store.slug)}"}
+							%a{:href=> "#{store_visit_path(store.slug)}",:target => "_blank","data-visited"=>store_visited_url(store.slug),:class => "visitstorelink",:id => store.slug}
+								%h5.storename
+									= store.name
+									- if store.beta?
+										%p.betatag (BETA)
+							%a{:href=> "#{store_visit_path(store.slug)}",:target => "_blank","data-visited"=>store_visited_url(store.slug),:class => "visitstorelink"}
+								%button.visitstore Shop Now
+							/ %a.viewdetailslink{:href=> "#{store_path(store.slug)}"}
+							/ 	View Details
+
+%section.wrapper.bottom-promo-wrapper
+	%section.container.bottom-promo-container
+		/ We're adding one store every week. Check our <a href="#">Facebook page</a> for details!
+		<a href="http://www.facebook.com/rechargery" target="_blank">We're planning on adding more stores soon. Follow us on Facebook to stay updated!</a>
+= render "common/footer"
+/= render "stores/parts/detectadblock"
+- content_for :afterjs do
+
+	:javascript
+		var warnhim = function () {
+			$('.storethumb.detectable').addClass("detectedstore");
+			$('.storethumb.detectable button.visitstore').addClass("disabled");
+			$.each($(".detectedstore"),function() {
+				mytip = new Opentip($(this),"Disable Adblock to shop on this store",{extends: "alert",target: true,tipJoint: "bottom"});
+			});
+		};
+		var ready = function() {
+			// When a user clicks on the link, open new tab and show visited page in current tab
+			$('.visitstorelink').on('click',function(){
+				window.location = $(this).attr("data-visited");
+			});
+			// Check for AdBlock Detection.
+			if ($('.body-wrapper').attr("data") == "adblock"){
+				warnhim();
+			}
+		}
+		var detectthebeast = function () {
+			detectblock(function() {
+				warnhim();
+			});
+		};
+		$(document).on('ready',ready());
+		$(document).on('ready',detectthebeast());
+		$(document).on('page:change',ready());
+

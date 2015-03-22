@@ -1,0 +1,25 @@
+<div id="header-wrapper">
+
+		<section id="header" class="container">
+			<nav>
+				<ul>
+					<li><%= link_to("Stores",stores_path) %></li>
+					<% if current_user %>
+					<li><%= link_to("Dashboard",url_for({:controller => "users",:action =>"dashboard"})) %></li>
+					<li><%= link_to("Profile",url_for({:controller => "users",:action =>"show"})) %></li>
+					<% end %>
+					<% if current_user %>
+					<li><%= link_to("Log Out",url_for({:controller => "sessions",:action =>"destroy"})) %></li>
+					<% else %>
+					<li><%= link_to("Log In",url_for({:controller => "users",:action =>"login"})) %></li>
+					<% end %>
+				</ul>
+			</nav>
+			<header>
+				<h1><%= link_to("RECHARGERY",url_for({:controller => "pages",:action =>"home"})) %></h1>
+			</header>
+			<aside>
+				<%= render partial: "sessions/state" %>
+			</aside>
+		</section>
+	</div>

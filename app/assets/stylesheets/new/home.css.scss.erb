@@ -1,0 +1,94 @@
+
+
+header.home-header{
+    width:100%;
+    height:100%;
+    min-height: 510px;
+    min-width:1000px;    
+    background:$greybackground;
+    background:-webkit-radial-gradient(bottom center,circle,#4D4E48,#2E2F2B);
+    background:radial-gradient(bottom center,circle,#4D4E48,#2E2F2B);
+    background-image:url(<%= asset_path('homebg.jpg') %>);
+    color:$cream;
+    background-position:center;
+    background-size:1600;
+    //background-attachment:fixed;
+}
+
+
+/******************************************/
+/******** NAVIGATION ***********************/
+/******************************************/
+.home-navigation-container{
+    height:110px; // 50px + 30px*2 
+    padding-top:30px;
+    padding-bottom:30px;
+    z-index:1;    
+}
+    
+
+/***************************/
+/***** HEADER-CONTENT ******/
+/***************************/
+
+.home-header .header-content-container{
+    text-align:center;
+    
+    padding-top:140px;    
+    h2.header-title{
+        font-size:3em;
+        margin-bottom:0.2em;
+        font-weight:bold;    
+        text-shadow:0px 0px 5px $whiteglow;
+        span.green{
+            color:$lightgreen;           
+        }
+    }
+    h3.header-lead{
+        font-size:2em;
+        font-weight:normal;
+        text-shadow:0px 0px 5px $whiteglow;
+    }
+    .header-action{
+        text-align:center;
+        
+        padding-top:40px;
+        padding-bottom:40px;
+        .button{
+            line-height:30px;
+            border-radius:0.3em;
+            border:1px solid $lightgreen;
+            color:$cream;
+            font-size:0.9em;
+            font-weight:bold;
+            
+            padding:0.7em 1em 0.7em 1em;
+            margin-left:0.3em;
+            margin-right:0.3em;
+            text-transform:uppercase;    
+            transition:all 300ms;
+            &:hover{
+                background-color:$darkgreen;
+                border:1px solid $darkgreen;
+            }
+        }
+        .green-button{
+            background-color:$lightgreen;
+        }
+    }
+}
+
+#homefooter{
+    text-align:center;
+    color:rgba(248,245,240,.5);
+    font-weight: 100;
+    position:fixed;
+    width:100%;
+    padding-bottom:1em;
+    bottom:0px;
+    font-size:0.8em;
+    a:hover{
+        color:rgba(248,245,240,.5);
+        text-decoration: underline;
+    }
+}

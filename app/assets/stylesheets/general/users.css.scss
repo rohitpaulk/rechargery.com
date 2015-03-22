@@ -1,0 +1,334 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blackbackground :#333333;
+$lightgreen: #8DCB89;
+
+$darkgreen: #6FC06A;
+$whitetext:#FFF;
+
+
+	
+
+/***********************/
+/* Login/Sign up       */
+/*********************/
+#loginwrapper
+{
+	background-color: $lightgreen;
+	min-width:1200px;
+	
+}
+
+#errors
+{
+	width:600px;
+	border-radius: 10px;
+	padding: 1em;
+	margin:0px auto 1em auto;
+	text-align: center;
+	
+	box-shadow: 2px 2px 5px $blackbackground;
+	background: #E74E59;
+	color: white;
+	font-weight: bold;
+}
+
+#logincontainer
+{
+	a
+	{
+		color:#333333;
+	}
+	section#login
+	{
+		
+		float:left;
+		
+
+	}
+	section#signup
+	{
+		
+		float:right;
+		
+		
+		
+	}
+	section#login, section#signup
+	{
+		
+		width:600px;
+		header
+		{
+			
+
+			h3
+			{
+				text-align: center;
+				font-size: 2em;
+				//color: rgba(255,255,255,1);
+				//color : $blackbackground;
+				color: lighten($blackbackground,5);
+				text-transform:uppercase;
+				font-weight:400;
+				margin-bottom: 1em;
+			}
+		}
+		.submit
+		{
+			margin-top:10px;
+		}
+	}
+
+}
+
+/***********************************/
+/* Profile Details ******************/
+/******************************/
+
+#accountdetails
+{
+	.link
+	{
+		color:#333333;
+	}
+	text-align:center;
+	padding-bottom: 4em;
+	min-height: 10em;
+	article h3
+	{
+		padding:1em 0em 2em 0em;
+	}
+	article ul li
+	{
+		font-size: 2em;
+		color:$blackbackground;
+		font-weight: bold;
+		strong
+		{
+			font-weight: normal;
+			color:white;
+			text-transform: uppercase;
+		}
+	}
+	table
+	{
+		font-size: 1.5em;
+		color:$blackbackground;
+		width:50%;
+		margin:0px auto;
+		tr:first-child td:first-child 
+		{ 
+			border-radius: 10px 0 0 0; 
+		}
+		tr:first-child td:last-child 
+		{ 
+			border-radius: 0 10px 0 0; 
+		}
+		tr td:first-child
+		{
+			width:30%;
+			background: $blackbackground; /* Light grey background */
+			color:white;
+
+			font-weight: bold; /* Make sure they're bold */	
+			text-transform: uppercase;
+		}
+		tr:nth-child(1) td:last-child
+		{
+			border-bottom:1px solid rgba(255,255,255,0.3);
+		}
+		tr:nth-child(2) td:last-child
+		{
+			border-bottom:1px solid rgba(255,255,255,0.3);
+		}
+		tr:nth-child(3) td:last-child
+		{
+			border-bottom:1px solid rgba(255,255,255,0.3);
+		}
+
+	}
+}
+/****************************************************/
+/* Edit Profile *******************************************/
+/******************************************************/
+#editprofilecontainer
+{
+	text-align:center;
+	padding-bottom: 4em;
+	min-height: 10em;
+	article h3
+	{
+		padding:1em 0em 2em 0em;
+	}
+}
+
+/****************************************************/
+/* Dashboard *******************************************/
+/******************************************************/
+
+#dashboardcontainer1
+{
+	#orders,#stats
+	{
+		padding-bottom: 2em;
+		h4
+		{
+			text-align: center;
+			font-size: 1.3em;
+			color : $blackbackground;
+			text-transform:uppercase;
+			font-weight:400;
+			
+			margin-bottom: 1em;
+		}
+		
+		header
+		{
+			h3
+			{
+				text-align: center;
+				font-size: 2em;
+				//color: rgba(255,255,255,1);
+				color : $blackbackground;
+				//color: lighten($blackbackground,5);
+				text-transform:uppercase;
+				//font-weight:400;
+				font-weight: bold;
+				margin-bottom: 1em;
+			}
+		}
+	}
+	#orders
+	{
+		float:left;
+		width:720px;
+		text-align: center;
+		h3
+		{
+			text-align: center;
+				font-size: 1.5em;
+				color : $blackbackground;
+				text-transform:uppercase;
+				margin-bottom: 0em;
+				font-weight: bold;
+		}
+		content table
+		{
+			width:720px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 2em;
+			margin-top: 0em;
+
+			thead th {
+				position:relative;
+				cursor:help;
+
+			}
+			#th_status:after
+			{
+
+
+				content:"\f05a";
+				position:absolute;
+				
+				top:0.2em;
+
+
+    			font-family: FontAwesome;
+    			font-weight: normal;
+    			font-style: normal;
+    			text-decoration: inherit;
+    			-webkit-font-smoothing: antialiased;
+    			color:rgba(255,255,255,0.7);
+    
+    			font-size: 0.7em;    
+    			position:absolute;
+    
+
+			}
+			
+			tr td:first-child a
+			{
+				//background-color:$blackbackground;
+				color:$blackbackground;
+			}
+			tr:nth-child(n+1) td:last-child
+			{
+				background-color:lighten($blackbackground,10);
+				color:white;
+				//cursor:pointer;
+			}
+			tr td:last-child:hover
+			{
+				background-color:white;
+				color:$blackbackground;
+			}
+			tr td:first-child:hover a
+			{
+				
+				color:white;
+			}
+			tr td:last-child:hover a
+			{
+				
+				color:$blackbackground;
+			}
+
+			
+			
+		}
+	}
+	
+	#stats
+	{
+		text-align: center;
+		float:right;
+		width:360px;
+		content
+		{
+			
+			font-size: 1.3em;
+			//color:$blackbackground;
+			color:white;
+			font-weight: bold;
+			strong
+			{
+				font-weight: normal;
+				//color:white;
+				color:$blackbackground;
+				text-transform: uppercase;
+			}
+			table
+			{
+				color:$blackbackground;
+				width:100%;
+				tr:first-child td:first-child 
+				{ 
+					border-radius: 10px 0 0 0; 
+				}
+				tr:first-child td:last-child 
+				{ 
+					border-radius: 0 10px 0 0; 
+				}
+				tr td:first-child
+				{
+					width:65%;
+					background: $blackbackground; /* Light grey background */
+					color:white;
+					font-weight: bold; /* Make sure they're bold */	
+					text-transform: uppercase;
+				}
+				tr:first-child td:last-child
+				{
+					border-bottom:1px solid rgba(255,255,255,0.3);
+				}
+
+			}
+		}
+	}
+}
+

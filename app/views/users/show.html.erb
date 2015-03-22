@@ -1,0 +1,47 @@
+<div id="wrapper1">
+
+	<section id="promotext" class="container">
+		<header class="title">
+			<h2>Profile Details</h2>
+			<span class="byline"></span>
+		</header>
+		<!-- <article>
+			<p>
+
+					Whenever you shop online on <a>Amazon.in</a> or <a>Flipkart.com</a>, do it through <strong>RECHARGERY</strong> and you get free echarges.
+				</p>
+
+			</article>-->
+	</section>
+	<section id="accountdetails" class="container">
+		<article>
+			<table>
+				<tr>
+					<td>Name</td>
+					<td><%= @current_user.name %></td>
+				</tr>
+				<tr>
+					<td>Phone</td>
+					<td><%= @current_user.phone %></td>
+				</tr>
+				<tr>
+					<td>Provider</td>
+					<td><%= @current_user.providertext %></td>
+				</tr>
+				<tr>
+					<td>Email ID</td>
+					<td><%= @current_user.email %></td>
+				</tr>
+			</table>
+
+			<%= link_to("Edit Details",url_for({:controller => "users",:action => "edit"}),:class => "button") %>
+			<br>
+			<%= link_to("Change Password",url_for({:controller => "users",:action => "changepassword"}),:class => "button") %>
+			<br>
+			<br>
+			<br><%= link_to("Delete Account",url_for({:controller => "users",:action => "destroy"}),:class => "link",data: { confirm: "This will delete all your current orders and your account. Are you sure?" }) %><br>
+		</article>
+
+	</section>
+</div>
+

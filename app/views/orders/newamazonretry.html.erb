@@ -1,0 +1,54 @@
+<script>
+$(document).ready(function () {
+
+
+</script>
+
+<div id="wrapper3">
+	<section id="newflipkartcontainer" class="container clearfix">
+
+		<header>
+			<h3>Oopsy.</h3>
+			<span class="byline">Fill in your order details below</span>
+		</header>
+
+		<%= form_tag(url_for({:controller => 'orders',:action => 'createamazon'})) do %>
+
+			<% if flash[:alert] %>
+				<div id="flash">
+					<span id="alert"><%= flash[:alert] %></span>
+				</div>
+			<% end %>
+			<% if flash[:notice] %>
+				<div id="flash">
+					<span id="notice"><%= flash[:notice] %></span>
+				</div>
+			<% end %>
+
+			<% if @order && @order.errors.any? %>
+				<div id="errors">
+					<% for message in @order.errors.full_messages %>
+						<%= message %> <br>
+					<% end %>
+				</div>
+			<% end %>
+
+			
+			<label>Amazon.in Order Number</label>
+			<%= text_field_tag("orderid", nil, :class => "text", :placeholder => "Order ID", :value => @order.orderid) %>
+			
+			<label>Amazon Account Email</label>
+			<%= text_field_tag("emailused", nil, :class => "text", :placeholder => "Email Used", :value =>@order.emailused) %>
+
+			<label>Order Total</label>
+			<%= text_field_tag("ordertotal", nil, :class => "text", :placeholder => "Order Total", :value =>@order.ordertotal) %>
+
+
+			<label>Description (Optional)</label>
+			<%= text_field_tag("productname", nil, :class => "text", :placeholder => "Description (Optional)", :value => @order.productname) %> 
+
+			<%= submit_tag("Submit Order",:class => "submitbutton") %>
+		
+		<% end %>
+	</section>
+</div>

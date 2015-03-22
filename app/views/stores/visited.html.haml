@@ -1,0 +1,67 @@
+= render "common/header", :active => 'stores'
+
+%section.wrapper.body-wrapper{:data => "#{"adblock" if session[:adblock]}"}
+	%section.container.body-container.clearfix#singlestore
+		= render "common/flash_messages"
+		= render "stores/parts/singlestoreheader", {:store => @store}
+		%section.storevisitedtext
+			%p
+				!= "<strong> #{@store.name}</strong> has opened in another window"
+			/ %p{:id=>"#{"adblockchange1" unless @store.adblock_compatibility}"}
+			/ 	If you've made a purchase, it'll appear in your account by
+			/ 	= 3.days.from_now.strftime("%A")
+			- if current_user && @store.status != 1
+				%p{:id=>"#{"adblockchange1" unless @store.adblock_compatibility}"}
+					All purchases you make will automatically appear in your account by
+					= 3.days.from_now.strftime("%A")
+				%p{:id=>"#{"adblockchange2" unless @store.adblock_compatibility}"} We'll let you know by email!
+				%a.button{:href => stores_path} Visit Another Store
+			- elsif current_user
+				%a.button{:href => stores_path} Visit Another Store
+			- else
+				%p.error
+					%a{:href=> new_login_path} You won't receive talktime on any purchases made because you aren't signed in to Rechargery.
+				%a.button{:href => new_login_path} Sign in Now!
+
+%section.wrapper.bottom-promo-wrapper
+	%section.container.bottom-promo-container
+		For the latest #{@store.name} offers, follow us on Facebook!
+
+= render "common/footer"
+
+- content_for :afterjs do
+	:javascript
+		var warnhim = function () {
+			$('#shopnow.detectable').addClass("disabled");
+			mytip = new Opentip($('#shopnow.detectable'),"Disable Adblock to shop on this store",{extends: "alert",target: true,tipJoint: "bottom"});
+			// Visited
+			$('#adblockchange1').html("You're using an Ad-Blocking plugin, and thus it is unlikely that your purchase will be tracked.");
+			$('#adblockchange1').addClass("error");
+			$('#adblockchange2').html("We'll let you know by email if it does!");
+		};
+
+		var ready = function() {
+			// When a user clicks on the link, open new tab and show visited page in current tab
+			$('#shopnow').on('click',function(){
+				window.location = $(this).attr("data-visited");
+
+			});
+
+			// The Technical Details button
+			$('#toggletechnical').click(function (e) {
+				e.preventDefault();
+				$('#technicaltable').toggle();
+			});
+
+			// Check for AdBlock Detection.
+			if ($('.body-wrapper').attr("data") == "adblock"){
+				warnhim();
+			}
+		};
+		var detectthebeast = function () {
+			detectblock(function() {
+				warnhim();
+			});
+		};
+		$(document).on('ready',detectthebeast());
+		$(document).on('page:change',ready());

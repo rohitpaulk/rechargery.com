@@ -1,0 +1,282 @@
+.body-container#singlestore{
+    padding-top: 50px;
+    color:white;
+}
+
+.singlestoreheader .storelogo{
+    float:left;
+    width:80px;
+    height:80px;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+.singlestoreheader .backbutton{
+    width:50px;
+    height:50px;
+    text-align: center;
+    vertical-align: middle;
+    position:absolute;
+    top:10px;
+    left:-50px;
+    opacity:0.5;
+    transition:0.1s all;
+    &:hover{
+        opacity:0.9;
+    
+    }
+}
+.singlestoreheader{
+    position:relative;
+    //background-color: black;
+    height:80px;
+}
+
+.singlestoreheader:before:hover{
+    opacity:1;
+}
+.singlestoreheader .storedesc{
+    float:left;
+    width:560px;
+    padding-left: 15px;
+    padding-top:10px;
+    padding-bottom:10px;
+    
+    height:80px;
+}
+.singlestoreheader .storeaction{
+    float:left;
+    width:320px;
+}
+
+.singlestoreheader .storedesc h2{
+    font-size:24px;
+    font-weight: bold;
+    line-height: 30px;
+}
+.singlestoreheader .storedesc p{
+    font-size:14px;
+    font-weight: 100;
+    line-height: 20px;
+}
+
+.singlestoreheader .storeaction a.button{
+    background-color: $gogreen;
+    display:block;
+    width:200px;
+    margin:10px auto 0px auto;
+    height:40px;
+    border-radius:4px;
+    text-align:center;
+    line-height: 40px;
+    font-weight: normal;
+    font-size:14px;    
+}
+.singlestoreheader .storeaction a.button.disabled{
+    background-color: $gored;    
+}
+.singlestoreheader .storeaction a.technical{
+    display:block;
+    width:200px;
+    margin:0px auto 0px auto;
+    height:20px;
+    text-align:center;
+    line-height: 20px;
+    font-weight: light;
+    font-size:10px;
+    text-transform: uppercase;
+}
+
+.singlestoreheader .storeaction table.technicaldetails{
+    display:none;
+    color:white;
+    font-size:10px;
+    width:200px;
+    margin:auto;
+    border-collapse: collapse;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 2px;
+    
+}
+.singlestoreheader .storeaction table.technicaldetails tr{
+   
+    
+}
+.singlestoreheader .storeaction table.technicaldetails td{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    height:30px;    
+    font-weight: 100;
+    padding-left:10px;
+}
+.singlestoreheader .storeaction table.technicaldetails td.title{
+    font-weight: bold;
+}
+
+
+
+.singlestorerates{
+    .laptopbox{
+        //background-color: black;
+        width:560px;
+        float:left;
+        padding-top:110px;
+    }
+    .mobilebox{
+        width:320px;
+        float:right;
+        padding-top:60px;
+    }
+}
+.singlestorerates .laptopbox .laptop{
+    background-image:url("../images/laptop.png");
+    height:330px;
+    width:560px;
+    text-align: center;
+}
+.singlestorerates .mobilebox .mobile{
+    background-image:url("../images/phoneupright.png");
+    height:440px;
+    width:250px;
+    text-align:center;
+    margin:0px auto 0px auto;
+    padding-top: 60px;
+}
+
+.singlestorerates .laptopbox .laptop h4{
+    font-weight: 100;
+    font-size: 14px;
+    padding-top:30px;
+    
+}
+.singlestorerates .laptopbox .note{
+    font-weight: 100;
+    font-size: 12px;
+    text-align: center;    
+}
+.singlestorerates .laptopbox .laptop input{
+    box-sizing: border-box;
+    font-weight: 900;
+    font-size: 72px;
+    width:300px;
+    height:80px;
+    margin:30px 0px 0px 0px;
+    background: transparent;
+    border:none;
+    color:white;
+    text-align: center;
+    
+}
+.singlestorerates .laptopbox .laptop input:focus,.singlestorerates .laptopbox .laptop input:hover{
+    outline:none;
+    color:$lightblue;
+    
+    
+    
+}
+.singlestorerates .laptopbox .laptop .currency{
+    font-weight: 900;
+    font-size: 24px;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    text-transform: uppercase;
+}
+.singlestorerates .laptopbox .laptop .instructions{
+    font-weight: normal;
+    font-size: 14px;
+    margin:30px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    color:$gogreen;
+ 
+}
+.singlestorerates .laptopbox .laptop a.button{
+    background-color: $lightblue;
+    //background-color: $graphblue;
+    display:block;
+    width:200px;
+    margin:15px auto 0px auto;
+    height:45px;
+    line-height: 45px;
+    border-radius:4px;
+    text-align:center;
+    font-weight: normal;
+    font-size:14px;
+    opacity:0;
+    transition:1s all;
+}
+.singlestorerates .laptopbox .laptop a.button:hover{
+    
+    background-color: $twitterblue;    
+    
+}
+
+.singlestorerates .mobilebox .mobile h4{
+    font-weight: 100;
+    font-size: 14px;
+    padding-top:30px;
+    
+}
+.singlestorerates .mobilebox .mobile div#rechargeamount{
+    font-weight: 900;
+    font-size: 72px;
+    width:200px;
+    height:80px;
+    margin:50px auto 0px auto;
+    background: transparent;
+    border:none;
+    color:$gogreen;
+    text-align: center;    
+}
+.singlestorerates .mobilebox .mobile .currency{
+    font-weight: 900;
+    font-size: 24px;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    text-transform: uppercase;
+}
+//.singlestorerates .mobilebox .mobile a.button{
+//    background-color: $gogreen;
+//    display:block;
+//    width:150px;
+//    margin:15px auto 0px auto;
+//    height:35px;
+//    line-height: 35px;
+//    border-radius:4px;
+//    text-align:center;
+//    font-weight: normal;
+//    font-size:14px;
+//}
+.storevisitedtext{
+    padding-top:50px;
+    padding-bottom:40px;
+
+}
+
+.storevisitedtext p{
+    font-size:24px;
+    font-weight:normal;
+    width:480px;
+    margin:auto;
+    margin-bottom:25px;
+    
+}
+.storevisitedtext p.error{
+    background-color:$gored;   
+    padding:10px;
+    border-radius:4px;
+    
+
+}
+
+.storevisitedtext a.button{
+    background-color: $gogreen;
+    display:block;
+    width:200px;
+    margin:10px auto 0px auto;
+    height:40px;
+    border-radius:4px;
+    text-align:center;
+    line-height: 40px;
+    font-weight: normal;
+    font-size:14px;
+    margin-top:30px;
+}

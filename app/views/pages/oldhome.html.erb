@@ -1,0 +1,118 @@
+<script>
+$(function() {
+
+	$("#rechargeamount").css("text-shadow","0px 0px 0px #8DCB89");
+	$("#rechargeamount").css("transition","5s ease-in");
+    $("#slider").on("change",function () {
+    	$("#rechargeamount").css("text-shadow","0px 0px 10px #8DCB89,0px 0px 20px #8DCB89,0px 0px 100px #8DCB89,0px 0px 50px #8DCB89");
+	      $("#ordertotal").html($("#slider").val());
+      var recharge = (($("#slider").val()*0.03)-(($("#slider").val()*0.03)%10));
+      $("#rechargeamount").html(recharge);
+
+
+    });
+
+
+});
+
+</script>
+<style>
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background:white;
+    height:5px;
+    width:500px;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background:#8DCB89;
+    height:20px;
+    width:20px;
+    border-radius: 50%;
+}
+input[type='range']::-moz-range-track {
+    -webkit-appearance: none !important;
+    background:white;
+    height:5px;
+    width:500px;
+}
+input[type='range']::-moz-range-thumb {
+    -webkit-appearance: none !important;
+    background:#8DCB89;
+    height:20px;
+    width:20px;
+    border-radius: 50%;
+}
+</style>
+<div id="welcomewrapper">
+		<section id="welcome" class="container">
+			<header class="title">
+				<h2>Are you ready for your free recharge?</h2>
+				<span class="byline">We know you are!</span>
+			</header>
+			<!--<article class="clearfix">
+				<h3>How much, you ask?</h3>
+				<div id="slidercontainer" class="container clearfix">
+
+					<div id="ratesbox">
+						<h4>Order Total : Rs.<span id="ordertotal">2013</span></h4>
+						<div id="sliderbox">
+						<input type="range" id="slider" min="0" max="25000" value="2013" />
+						</div>
+						<h4>Recharge Amount : Rs.<span id="rechargeamount">60</span></h4>
+					</div>
+					<%= link_to("Try it now",url_for({:controller => "stores",:action => "index"}),:class => "button") %>
+				</div>
+
+			</article>-->
+
+		</section>
+</div>
+<div id="wrapper2" class="clearfix">
+
+	<div id="slidercontainer" class="container clearfix">
+		<div class="title">
+			<h2>How much, you say?</h2>
+			<span class="byline">Use the slider below to find out.</span>
+		</div>
+
+		<div id="ratesbox">
+			<h4>Order Total : Rs.<span id="ordertotal">2013</span></h4>
+			<div id="sliderbox">
+				<input type="range" id="slider" min="0" max="25000" value="2013" />
+			</div>
+			<h4>Recharge Amount : Rs.<span id="rechargeamount">60</span></h4>
+		</div>
+		<p id="myntrarate">*For Myntra orders - Flat Rs.50 Recharge for all orders above Rs.500</p>
+		<%= link_to("Try it now",url_for({:controller => "stores",:action => "index"}),:class => "button") %>
+	</div>
+</div>
+<div id="wrapper3">
+		<section id="welcome" class="container">
+			<header class="title">
+				<h2>Questions?</h2>
+				<span class="byline">Shoot us an email at hello@rechargery.com!</span>
+			</header>
+			<!--<article class="clearfix">
+				<h3>How much, you ask?</h3>
+				<div id="slidercontainer" class="container clearfix">
+
+					<div id="ratesbox">
+						<h4>Order Total : Rs.<span id="ordertotal">2013</span></h4>
+						<div id="sliderbox">
+						<input type="range" id="slider" min="0" max="25000" value="2013" />
+						</div>
+						<h4>Recharge Amount : Rs.<span id="rechargeamount">60</span></h4>
+					</div>
+					<%= link_to("Try it now",url_for({:controller => "stores",:action => "index"}),:class => "button") %>
+				</div>
+
+			</article>-->
+
+		</section>
+</div>
+
+
+
+
+

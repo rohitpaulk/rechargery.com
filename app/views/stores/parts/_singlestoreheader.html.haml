@@ -1,0 +1,34 @@
+%section.singlestoreheader
+	%a.backbutton{:href => stores_path}
+		%img{:src => image_url("back-button.png"),:width => "50",:height => "50"}
+	%section.storelogo
+		%a{:href => ""}
+			%img{:src => asset_url("stores/#{store.image_name}"),:width=>"70",:height=> "70"}
+	%section.storedesc
+		%a{:href => ""}
+			%h2 
+				= store.name
+		%p
+			= store.short_desc
+	%section.storeaction
+		- if current_user 
+			%a.button.visitstorelink#shopnow{:href=> "#{store_visit_path(store.slug)}",:target => "_blank","data-visited"=>store_visited_url(store.slug),:class => "#{"detectable" unless store.adblock_compatibility}"} Shop Now
+		- else
+			%a.button.visitstorelink#shopnow{:href=> "#{store_visit_path(store.slug)}",:target => "_blank","data-visited"=>store_visited_url(store.slug),:class => "#{"detectable" unless store.adblock_compatibility}",:confirm => "Only signed in users can receive talktime. Do you want to continue?"} Shop Now
+		%a.technical#toggletechnical{:href => "#"} Technical Details
+		%table.technicaldetails#technicaltable{:style => "display:none;"}
+			%tr
+				%td.title Tracking Reliability
+				%td 
+					= store.tracking_reliability.to_s + "%"
+			%tr
+				%td.title Adblock Compatible
+				%td 
+					- if store.adblock_compatibility
+						Yes
+					- else
+						No
+			%tr
+				%td.title Turnover Period
+				%td 
+					= store.timeperiod

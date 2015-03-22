@@ -1,0 +1,233 @@
+<%= hidden_field_tag "userid", current_user.id, { :id => "user-id" } %>
+<script>
+function scrollToAnchor(aid){
+    var aTag = $(aid);
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
+
+
+$(document).ready(function () {
+	var currentuser = $("#user-id").val();
+	
+
+	$('.step,#wrapper3').css("opacity","0.2");
+
+	$('#promotext .button').click(function(e){
+		e.preventDefault();
+		scrollToAnchor("#step1");
+		$('#step1').fadeTo('slow',1);
+		
+	});
+	$('#step1 .buttongreen').click(function(e){
+		$('#step1').fadeTo('slow',0.2);
+		e.preventDefault();
+		scrollToAnchor("#step2");
+		$('#step2').fadeTo('slow',1);
+
+	});
+	
+	$('#genlink').click(function(e){
+		var p = $("#rawlink").val();
+
+		var afflink = "/tracker?user=" + currentuser +"&url="+p;
+		
+		$("#rawlink").val(afflink);
+		$(".editedlink").attr("href",afflink);
+
+		$('#step2').fadeTo('slow',0.2);
+		e.preventDefault();
+		scrollToAnchor("#step3");
+
+		
+		$('#step3').fadeTo('slow',1);
+
+		$('#step3 .substep1').fadeTo('slow',1);
+		$('#step3 .editedlink').show();
+		$('#step3 #more').hide();
+	});
+	$('.editedlink').click(function(e){
+		$('#step3 #more').show();
+
+		//$('#step3 .editedlink').hide();
+		$('#step3 .substep1').fadeTo('slow',0.3);
+	});
+	
+	$('#addmore').click(function(e){
+		$('#step3').fadeTo('slow',0.2);
+		$("#rawlink").val("");
+		e.preventDefault();
+		scrollToAnchor("#step1");
+		$('#step1').fadeTo('slow',1);
+
+	});
+	$('#chosenproducts').click(function(e){
+		$('#step3').fadeTo('slow',0.2);		
+		e.preventDefault();
+		scrollToAnchor("#step4");
+		$('#step4').fadeTo('slow',1);
+
+	});
+
+	$('#orderplaced').click(function(e){
+		$('#step4').fadeTo('slow',0.2);
+		e.preventDefault();
+		scrollToAnchor("#wrapper3");
+		$('#wrapper3').fadeTo('slow',1);
+
+	});
+
+});
+
+
+</script>
+
+<div id="wrapper1">
+	<section id="promotext" class="container">
+			<header class="title">
+				<h2>Let's Start Shopping</h2>
+				<span class="byline">Place an order through myntra</span> 
+			</header>
+			<article>
+				It only takes <strong>4 steps.</strong><br><br>
+				Don't forget to enter your order details once you're done!
+				<br><br>
+				<div>
+				<strong>NOTE : Kindly remove/disable extensions such as AdBlock before you proceed.<br> These interfering with the tracking process.</strong>
+				</div>
+			</article>
+
+			<a href="#step1" class="button">GET STARTED!</a>
+	</section>
+</div>
+<div id="wrapper2">
+	<section class="step" class="container" id="step1">
+		<header>
+			<span class="byline">Step 1</span>
+			<h3>Find desired product(s)</h3>
+			
+		</header>
+		
+		<article>
+			<strong>Go to <a href="/tracker?url=http://www.myntra.com/" target="_blank" class="link">www.myntra.com</a> and find a product that you want to order.</strong> <br>
+			Don't click on 'Buy Now' yet.<br>
+			<br>
+			Want to order more than one product? No worries! You can do that in Step 3.
+		</article>
+			<a href="#step2" class="buttongreen">I've found my product</a>
+	</section>
+	<section class="step" class="container" id="step2">
+		<header>
+			<span class="byline">Step 2</span>
+			<h3>Confirm your product choice</h3>
+			
+		</header>
+		
+		<article>
+			<strong>Copy the link to the product of your choice and paste it below.</strong><br><br>
+
+			For example, <br>
+			http://www.myntra.com/shirts/locomotive/locomotive-men-navy-checked-casual-shirt/225733/buy?searchQuery=men-casual-shirts&serp=1&uq=false#!<br>
+
+			<input type="text" class="text" id="rawlink" placeholder="Paste your link here">
+			Have more than one product? You can add it in the next step.
+		</article>
+			<a href="#step3" class="buttongreen" id="genlink">Confirm</a>
+	</section>
+	<section class="step container" id="step3">
+		<header>
+			<span class="byline">Step 3</span>
+			<h3>Add to Cart</h3>
+			
+		</header>
+		
+		<article class="substep1">
+			Follow these instructions and <strong>MAKE SURE YOU COME BACK AND CLICK ON THE 'DONE!' BUTTON THAT WILL APPEAR BELOW.</strong><br><br>
+
+
+			Step 1 : Click on <strong>'Add to Cart'</strong> below<br>
+			Step 2 : On the Myntra page you've been directed to, select your size and then click on <strong>'Buy Now'</strong>.<br>
+			Step 3 : To be eligible for a free recharge, <strong>come back to this page</strong> and click on 'Done'.<br><br>
+
+
+			Note: You <strong>have to</strong> click on the button below and immediately click on 'Buy Now' to be eligible for a free recharge. <br>
+		</article>
+		<a class="buttongreen editedlink" target="_blank" id="addtocart">Add to Cart</a><br>
+		<article id="more">			
+			If you have multiple products, click the "Add more products" button.<br>
+			Once you're done adding products, click on "Done" button below.<br>
+			<a href="#step1" class="buttongreen" id="addmore">Add more products</a>
+			<a href="#step4" class="buttongreen" id="chosenproducts">Done!</a>
+		</article>		
+	</section>
+	<section class="step container" id="step4">
+		<header>
+			<span class="byline">Step 4</span>
+			<h3>Place your order</h3>
+			
+		</header>
+		
+		<article>
+			Follow these instructions and <strong>MAKE SURE YOU COME BACK AND CLICK ON THE 'I'VE PLACED MY ORDER' BUTTON BELOW.</strong><br><br>
+
+			Step 1 : Go to <a href="/tracker?url=http://www.myntra.com/" target="_blank" class="link">www.myntra.com</a>.<br>
+			Step 2 : Click on the <strong>"My Bag"</strong> button. <br>
+			Step 3 : Click on <strong>"Place Order"</strong> <br>
+			Step 4 : Complete the checkout process. <br><br><strong>Note your Myntra.com order number,order total and your Myntra account email.</strong><br>
+			
+		</article>
+			<a href="#wrapper3" class="buttongreen" id="orderplaced">I've placed my order</a>
+	</section>
+
+</div>
+</div>
+<div id="wrapper3">
+	<section id="newflipkartcontainer" class="container clearfix">
+
+		<header>
+			<h3>Congrats! You've placed your order.</h3>
+			<span class="byline">Fill in your order details below</span>
+
+		</header>
+
+		<%= form_tag(url_for({:controller => 'orders',:action => 'createmyntra'})) do %>
+			<% if flash[:alert] %>
+				<div id="flash">
+					<span id="alert"><%= flash[:alert] %></span>
+				</div>
+			<% end %>
+			<% if flash[:notice] %>
+				<div id="flash">
+					<span id="notice"><%= flash[:notice] %></span>
+				</div>
+			<% end %>
+
+			<% if @order && @order.errors.any? %>
+				<div id="errors">
+					<% for message in @order.errors.full_messages %>
+						<%= message %> <br>
+					<% end %>
+				</div>
+			<% end %>
+
+			<label>Myntra.com Order Number</label>
+			<%= text_field_tag("orderid", nil, :class => "text", :placeholder => "Order ID", :value => @order.orderid) %>
+			
+			<label>Myntra Account Email</label>
+			<%= text_field_tag("emailused", nil, :class => "text", :placeholder => "Email Used", :value =>@order.emailused) %>
+
+			<label>Order Total</label>
+			<%= text_field_tag("ordertotal", nil, :class => "text", :placeholder => "Order Total", :value =>@order.ordertotal) %>
+
+
+			<label>Description (Optional)</label>
+			<%= text_field_tag("productname", nil, :class => "text", :placeholder => "Description (Optional)", :value => @order.productname) %>
+
+
+		
+			<%= submit_tag("Submit Order",:class => "submitbutton") %>
+			<br><br>
+			You will be redirected to a page where you'll be asked for your phone details. <br><br>
+		
+		<% end %>
+	</section>
+</div>

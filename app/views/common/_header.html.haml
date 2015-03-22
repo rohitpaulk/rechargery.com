@@ -1,0 +1,21 @@
+%section.wrapper.navigation-wrapper
+	%section.container.navigation-container
+		%section.navigation-logo
+			%a{:href=>"/"}
+				%h1 Rechargery
+		%section.navigation-left
+			%ul.navigation-menu
+				%a{:href=> stores_path,:class => active == 'stores' ? "active" : ""}
+					%li Stores
+				%a{:href=> dashboard_path, :class => active == 'dashboard' ? "active" : ""}
+					%li Dashboard
+		%section.navigation-right
+			%ul.navigation-menu
+				%a{:href=> profile_path}
+					%li Account
+				- if current_user
+					%a{:href=> get_logout_path}
+						%li Logout
+				- else
+					%a{:href=> new_login_path}
+						%li Login

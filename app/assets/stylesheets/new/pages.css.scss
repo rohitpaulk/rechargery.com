@@ -1,0 +1,98 @@
+.pagesheader{
+	width:100%;
+    min-width:1000px;    
+    background:$greybackground;
+    color:white;    
+}
+.pages-navigation-container{
+	height:70px; // 50px + 30px*2 
+    padding-top:10px;
+    padding-bottom:10px;
+    z-index:1;   
+}
+
+.promodivider{
+    text-align:center;
+    font-weight:100;
+    font-family:"FiraSans";
+    text-transform:uppercase;
+    padding-top:20px;
+    padding-bottom:20px;
+    position:relative;
+    //margin-top:20px;
+}
+
+.blackpromodivider{
+    color:rgb(255,255,255);
+}
+.creampromodivider{
+    color:rgb(62,63,58);
+}
+.whitepromodivider{
+    color:rgb(62,63,58);
+}
+.promodivider:before{
+    content:'';
+    display:block;
+    height:1px;
+    width:100%;    
+    position:absolute;
+    top:50%;
+    left:0px;
+    z-index:1;    
+}
+.blackpromodivider:before{
+    background-color:rgba(255,255,255,0.2);
+}
+.creampromodivider:before{
+    background-color:rgba(0,0,0,0.2);
+}
+.whitepromodivider:before{
+    background-color:rgba(0,0,0,0.2);   
+}
+
+
+
+.promodivider h3{
+    font-size:2.5em;
+    margin-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    display:inline-block;
+    margin:0px auto 0px auto;
+    z-index:2;
+    position:relative;
+}
+.blackpromodivider h3{
+    background:#3E3F3A;
+}
+
+.creampromodivider h3{
+    background-color:#F8F5F0;
+}
+.whitepromodivider h3{
+    background-color:white;
+}
+
+.promotext{
+    text-align:center;    
+}
+
+.promotext h4{
+    font-family:"FiraSans",sans-serif;
+    font-weight:bold;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:0em 0.5em 0em 0.5em;    
+    font-size:1.5em;
+    text-transform:uppercase;    
+}
+.whitepromotext h4{
+    color:rgba(62,63,58,0.8);
+}
+.creampromotext h4{
+    color:rgba(62,63,58,0.8);
+}
+.blackpromotext h4{
+    color:rgba(255,255,255,0.5);
+}

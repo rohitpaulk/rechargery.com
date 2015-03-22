@@ -1,0 +1,185 @@
+*,*:before,*:after{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    margin:0px;
+    border:0px;        
+}
+
+// .clearfix:after {
+// 	content: ".";
+// 	display: block;
+// 	clear: both;
+// 	visibility: hidden;
+// 	line-height: 0;
+// 	height: 0;
+// }
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.wrapper{
+    min-width:1000px;
+}
+.grid1of3container{
+    padding-left:20px;
+    padding-right:20px;    
+}
+.grid1of3element{
+    display:block;
+    float:left;
+    width:300px;
+    margin-left:10px;
+    margin-right:10px;
+    font-size:16px;
+}
+
+body{
+    font-family:"FiraSans",sans-serif;
+    z-index:0;    
+}
+html,body
+{
+    height:100%;
+    min-height:100%;
+    //min-height: 510px;
+}
+.navigation-container{
+    z-index:1;
+    .navigation{
+        height:50px;    
+        .Navigation-left{
+            float:left;
+            height:50px;      
+        }
+        .Navigation-right{
+            float:right;
+            height:50px;
+            padding-right:10px;
+        }
+        .Navigation-logo{
+            float:left;
+            padding-right:20px;
+            padding-left:10px;
+            height:50px;
+            line-height:50px;    
+            a{
+                font-weight:bold;
+                font-size:1em;
+                color:$cream;
+                text-decoration:none;
+                text-transform:uppercase;    
+            }
+        }
+        .Navigation-item{
+            line-height:30px;
+            margin-top:10px;
+            margin-bottom:10px;
+            font-size:0.8em;
+            text-transform:uppercase;
+            display:inline-block;
+            padding-right:0.8em;
+            padding-left:0.8em;
+            font-weight:100;
+            color:rgba(248,245,240,.5);
+            transition:color 200ms ease-in;
+            transition:background-color 200ms;
+            border-radius:0.3em;    
+            &:hover{
+                color:rgba(248,245,240,1);
+                background-color:#83A552;
+            }
+        }
+        .Navigation-button{
+            line-height:30px;
+            border-radius:0.3em;
+            border:1px solid #A6C776;
+            color:#F8F5F0;
+            font-weight:bold;
+            box-shadow:inset 0px 0px 0px #A6C776;
+            transition:box-shadow 200ms ease-in;
+            transition:background-color 300ms;    
+            &:hover{
+                box-shadow:inset 0 0 5px $darkgreen;
+                background-color:$darkgreen;
+                border:1px solid $darkgreen;
+            }
+        }
+    }
+}
+
+
+.footer{
+    text-align:center;
+    background:$greybackground;
+    padding-top:1em;
+    padding-bottom:1em;    
+    z-index:-2;
+    height:200px;    
+    position:relative;
+    .footercontainer{
+        //position:fixed;
+        //bottom:20px;
+        //left:50%;
+        //margin-left:-500px;
+        z-index:-1;
+        .footerelement{    
+            width:155px;    
+            float:left;
+            margin:0px 35px 0px 35px;
+            padding:1em;
+            h3{
+                font-family:"FiraSans",sans-serif;
+                text-transform:uppercase;
+                display:block;
+                margin-bottom:0.5em;
+                color:rgb(255,255,255);
+            }
+            a{
+                display:block;
+                color:rgba(248,245,240,.5);
+                font-size:0.9em;
+                text-transform:uppercase;
+                font-family:"FiraSans",sans-serif;
+                margin-bottom:0.5em;
+            }
+
+        }
+        .footerelement:nth-of-type(1),.footerelement:nth-of-type(2){
+            text-align:right;
+        }
+        .footerelement:nth-of-type(4),.footerelement:nth-of-type(5){
+            text-align:left;
+        }
+        .footerlogobox{
+            padding:30px 0 30px 0;
+            width:100px;
+            height:auto;
+            float:left;            
+            margin:0px 0px 0px 0px;
+            .footerlogo{
+                width:100px;
+                height:100px;            
+            }
+        }
+    }
+}
+
+.footerelement a:hover{
+    text-decoration:underline;
+}

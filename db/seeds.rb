@@ -1,0 +1,37 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+all_stores = Category.create(
+	name: "All Stores"
+)
+
+Store.create(
+	name: 'Amazon',
+	status: 1,
+	image_name: "amazon.png",
+	tracking_reliability: 96,
+	adblock_compatibility: true,
+	payment_method: nil,
+	categories: [all_stores],
+	tracker_type: 0,
+	tracker_urlidentifier: "amazon.in",
+	tracker_storeurl: "http://www.amazon.in/",
+	tracker_afftag: "&tag=rechargery-21"
+)
+
+Store.create(
+	name: 'Flipkart',
+	status: 2,
+	image_name: "flipkart.png",
+	tracking_reliability: 100,
+	adblock_compatibility: true,
+	payment_method: nil,
+	categories: [all_stores],
+	tracker_urlidentifier: "flipkart.com"
+)
+

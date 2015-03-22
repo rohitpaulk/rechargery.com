@@ -1,0 +1,171 @@
+#storescontainer{
+    
+}
+.promoheader{
+    padding-top: 50px;
+    padding-bottom: 50px;
+        
+}
+.promoheader h3{
+    color:white;
+    font-size:36px;
+    font-weight:100;
+}
+.storecategories{
+    padding-bottom: 25px;
+}
+.storecategory{
+    //background-color: black;
+    padding-top:15px;
+    padding-bottom: 15px; // CHANGE THIS!!!
+    border-bottom:10px white;
+    border:10px white;
+    box-shadow:0px 1px rgba(255,255,255,0.3);
+}
+.categorydetails{
+    width:320px;
+    color:white;
+    float:left;
+    padding-top: 10px;
+}
+.categorydetails h4{
+    font-size:18px;
+    font-weight:normal;
+    margin-bottom: 5px;
+}
+.categorydetails p{
+    font-size:14px;
+    font-weight: 100;
+}
+.categorystores{
+    width:640px;
+    
+    
+    float:left;
+}
+
+.storethumb{
+    display:block;
+    width:160px;
+    height:130px;
+    float:left;
+    padding-bottom:10px;
+    padding-top:10px;
+    position:relative;
+    overflow:hidden;
+    border-radius:4px;
+}
+
+
+.storethumb .storeicon{
+    padding-top:10px;
+    padding-bottom:0px;
+    
+}
+.storethumb .storename{
+    color:white;
+    font-weight:bold;
+    font-size:14px;
+    text-align:center;
+    text-transform: uppercase;
+    height:40px;
+}
+.storethumb .betatag {
+    font-size:10px;
+    font-weight: normal;
+}
+.storethumb .storeicon img{
+    margin:auto;
+    display:block;    
+}
+.storethumb .visitstore{
+    display:block;
+    margin: 0px auto 0px auto;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+    text-transform: uppercase;
+    height:30px;
+    padding: 0px 15px 0px 15px;
+    border-radius:2px;
+    background-color:$purple;
+    color:white;
+    border:none;
+    cursor: pointer;
+}
+.storethumb .visitstore.disabled{
+    background-color:$gored;
+    cursor: not-allowed;
+}
+.storethumb .visitstore.disabled:hover{    
+    background-color:$gored;
+
+}
+.storethumb .visitstore:hover{
+    background-color:darken($purple,10);
+}
+.storethumb .viewdetailslink{
+    display:block;
+    text-align: center;
+    color:white;
+    font-size:12px;
+    line-height: 15px;
+    padding-top:25px;    
+}
+.storethumb .viewdetailslink:hover{
+    text-decoration: underline;
+
+}
+
+.storethumb{
+    background-color:transparent;    
+    transition: 0.2s all;
+    transition-delay: 0s; // On Mouseout
+}
+
+.storethumb .thumbframe{
+    position:absolute;
+    top:10px;
+    width:100%;
+    transition:0.2s all;
+    transition-delay: 0s; // On Mouseout
+    display:block;
+    height:auto;
+    cursor:pointer;
+}
+.storethumb .visitstore, .storethumb .viewdetailslink{
+    opacity:0;
+    transition:0.2s all;
+    transition-delay: 0s; // On Mouseout
+}
+.storethumb .storeicon img{
+    opacity:1;
+    transition: 0.2s all;
+    transition-delay: 0s; // On Mouseout
+}
+
+.storethumb:hover{
+    background-color:rgba(0,0,0,0.5);    
+}
+
+.storethumb:hover .visitstore,.storethumb:hover .viewdetailslink{
+    opacity:1;
+    -webkit-transition: opacity 0.3s ease 0.3s, background-color 0.2s ease 0s;        
+    -moz-transition: opacity 0.3s ease 0.3s, background-color 0.2s ease 0s;        
+    transition: opacity 0.3s ease 0.3s, background-color 0.2s ease 0s;        
+}
+.storethumb:hover .storeicon img,.storethumb:hover .betatag {
+    opacity:0;
+    -webkit-transition: opacity 0.3s ease 0.3s;
+    -moz-transition: opacity 0.3s ease 0.3s;
+    transition: opacity 0.3s ease 0.3s;
+
+    //transition-delay: opacity 0.3s; // On Hover
+}
+.storethumb:hover .thumbframe{
+    -webkit-transform: translate(0px,-60px);
+    -moz-transform: translate(0px,-60px);
+    transform: translate(0px,-60px);
+    transition-delay: 0.3s; // On Hover    
+}
+

@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+}
+*,*:before,*:after{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+body{
+    font-family:"OpenSans";
+}
+fieldset{
+    border:none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}

@@ -1,0 +1,35 @@
+// Place all the styles related to the coupons controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blackbackground :#333333;
+$lightgreen: #8DCB89;
+
+$darkgreen: #6FC06A;
+$whitetext:#FFF;
+
+/***********************************/
+/* Coupon Details ******************/
+/******************************/
+#coupondetails
+{
+	text-align:center;
+	padding-bottom: 4em;
+	min-height: 10em;
+	article h3
+	{
+		padding:1em 0em 2em 0em;
+	}
+	article ul li
+	{
+		font-size: 2em;
+		color:$blackbackground;
+		font-weight: bold;
+		strong
+		{
+			font-weight: normal;
+			color:white;
+			text-transform: uppercase;
+		}
+	}
+}

@@ -1,0 +1,114 @@
+= csrf_meta_tag
+= render "common/header", :active => 'dashboard'
+
+%section.wrapper.body-wrapper
+	%section.container.body-container.clearfix#dashboard
+		= render "common/flash_messages"
+		%section.row1
+			%section.orderstable
+				%header
+					%h4 Talktime
+					%div.legend
+						%img{:src => image_url("statusball-0.png"), :width => 15, :height => 15}
+						Pending
+						%img{:src => image_url("statusball-1.png"), :width => 15, :height => 15}
+						Tracked
+						%img{:src => image_url("statusball-2.png"), :width => 15, :height => 15}
+						Recharged
+						%img{:src => image_url("statusball-3.png"), :width => 15, :height => 15}
+						Failed
+
+				%ul.orderslist
+					- for order in @orders
+						%li{"data-order-id" => order.id, :class => "orderitem status-#{order.status}"}
+							%section.activemarker
+							%section.statusball
+								%img{:src => image_url("statusball-#{order.status}.png"), :width => 20, :height => 20}
+							%section.date
+								= order.datetext
+							%section.store
+								= order.shopnametext
+							%input.desc{:value => order.productname, :placeholder => "Edit this Description..."}
+							%section.amount
+								= order.amounttext
+							- if order.status != 2
+								%a.delete{:href=> "#"} Delete
+
+			%section.talktimegraph
+				%section.graph
+					%canvas#myChart{:width => 200,:height => 200}
+				%section.values
+					%section.pending
+						%div.title{:style => "vertical-align:middle;"}
+							Pending
+						%div.amount
+							= 'Rs.' + @current_user.stats_pendingvalue.to_s
+					%section.recharged
+						%div.title Recharged
+						%div.amount
+							= 'Rs.' + @current_user.stats_earnedvalue.to_s
+
+= render "common/footer"
+
+- content_for :afterjs do
+	:javascript
+		ready = function () {
+			var data = [
+				{
+					value : #{@current_user.stats_earnedvalue},
+					color: "#8DCC4E"
+				},
+				{
+					value : #{@current_user.stats_pendingvalue},
+					color: "#2380e4"
+				}
+			];
+			var ctx = document.getElementById("myChart").getContext("2d");
+			var myNewChart = new Chart(ctx).Doughnut(data);
+			new Chart(ctx).Doughnut(data,{	segmentShowStroke : false});
+			updateDesc = function (element) {
+				var orderid = element.parent().attr("data-order-id");
+				$.ajaxSetup({
+				  headers: {
+				    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+				  }
+				});
+				NProgress.start();
+				$.post('/orders/update_desc/' + orderid, {id: orderid, desc: element.val()} , function (data) {
+					element.html(data.desc);
+					NProgress.done();
+				});
+			}
+			$('.orderitem .desc').blur(function () {
+				updateDesc($(this));
+			});
+			$('.orderitem .desc').bind('keypress', function(e) {
+				var yothis = $(this);
+
+				var code = e.keyCode || e.which;
+				if(code == 13) {
+					updateDesc(yothis);
+					yothis.blur();
+				}
+			});
+			$('.orderitem .delete').on('click',function () {
+				var yothis = $(this);
+				var orderid = yothis.parent().attr("data-order-id");
+				r = confirm("Are you sure?");
+				$.ajaxSetup({
+				  headers: {
+				    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+				  }
+				});
+				if (r == true){
+				NProgress.start();
+				$.post('/orders/delete/' + orderid, {id: orderid} , function (data) {
+					yothis.parent().remove();
+					NProgress.done();
+				});
+				}
+			});
+		}
+		//$(document).on('ready',ready());
+		//$(document).on('page:change',ready());
+		$(document).on('page:load',ready());

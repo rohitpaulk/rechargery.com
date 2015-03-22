@@ -1,0 +1,9 @@
+- if flash[:alert]
+    %section.flashbox.alert
+        = flash[:alert]
+- if flash[:notice]
+    %section.flashbox.notice
+        = flash[:notice]
+- if flash[:info]
+    %section.flashbox.info
+        = flash[:info]

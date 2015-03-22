@@ -1,0 +1,182 @@
+.signup-wrapper{
+    background-color:$cream;
+    padding-top: 40px;
+    padding-bottom:40px;
+    
+}
+.signup-container{
+    a.facebook{
+        display:block;
+        width:300px;
+        text-align:center;
+        font-family:"FiraSans";
+        border-radius:5px;
+        color:#F8F5F0;
+        font-size:1.2em;
+        font-weight:bold;    
+        margin-left:auto;
+        margin-right:auto;
+        padding:0.7em 1em 0.7em 1em;
+        margin-top:1em;    
+        text-transform:uppercase;
+        background-color:#3B5999;
+        transition: all 300ms;
+        &:hover{
+            background-color:#2269CA;
+            cursor:pointer;                    
+        }
+    }
+    margin-left:auto;
+    margin-right:auto;
+    width:700px;
+    height:100%;
+    box-shadow:0px 0px 3px 0px rgba(62,63,58,0.1);
+    background-color:$white;
+    h2{
+        text-transform:uppercase;
+        font-size:2em;
+        font-weight: 100;    
+        text-align:center;  
+        color:#3E3F3A;
+        line-height: 70px;
+    }
+    .divider-bar{
+        width:100%;
+        height:1px;
+        background-color:#F5ECDC;            
+    }
+    #signup-box{
+
+        width:700px;
+        margin:auto;
+        height:100%;
+        color:#3E3F3A;
+        padding:10px 50px 30px 50px;
+        font-family:"FiraSans",sans-serif;        
+        .signupflashbox{
+            min-height:50px;
+            width:100%;
+            margin:0px auto 10px auto;
+            text-align:center;
+            padding:1em;
+            border-radius:5px;
+            color:white;
+        }
+        .alertbox{
+            background-color:$red;
+        }
+        .noticebox{
+            background-color:$lightblue;
+        }
+        h1{
+            text-transform:uppercase;
+            font-size:2em;    
+            text-align:center;
+        }
+        
+        p{
+            font-size:1em;    
+            text-align:center;
+        }
+        .divider-bar{
+            width:100%;
+            height:1px;
+            background-color:rgba(0,0,0,0.1);
+            margin-top:10px;
+        }
+        #signup-form{
+            display:block;
+            width:600px;
+            margin:0 auto 0 auto;
+            label{
+                display:block;
+                text-transform:uppercase;
+                font-weight:normal;
+                font-size:1.2em;
+                margin-bottom:10px;
+                margin-top:10px;
+                color:#A59983;
+            }
+            input[type="text"],input[type="password"]{
+                font-family:"FiraSans",sans-serif;
+                width:100%;
+                background-color:#FCFAF5;
+                border:1px solid #E3DBCE;
+                height:45px;
+                border-radius:5px;
+                padding-left:15px;
+                font-size:1em;
+                transition:all 200ms;    
+            }            
+            #phonenumber-input{
+                width:250px;
+                display:block;
+                float:left;
+            }
+            #phoneoperator-input{
+                width:140px;
+                display:block;
+                float:left;
+                height:45px;
+                font-family:"FiraSans",sans-serif;
+                background-color:#FCFAF5;
+                border:1px solid #E3DBCE;                
+                border-radius:5px;
+                padding:10px 10px 10px 13px;
+                margin-left:10px;
+                font-size:1em;
+                transition:all 200ms;     
+                -webkit-appearence:none;
+                outline:none;
+                color:#2a2b24;
+                &:hover{
+                    border:1px solid #b4a995;
+                    color:#2a2b24;   
+                }
+                &:active{
+                    border:1px solid #b4a995;
+                    color:#2a2b24;
+                }
+            }
+            input[type="text"]:focus,input[type="password"]:focus{
+                outline:none;
+                border:1px solid #b4a995;
+                color:#2a2b24;
+            }
+            button{
+                width:100%;
+                font-family:"FiraSans";
+                border-radius:5px;
+                color:#F8F5F0;
+                font-size:1.2em;
+                font-weight:bold;    
+                padding:0.7em 1em 0.7em 1em;
+                margin-top:1em;    
+                text-transform:uppercase;
+                background-color:#A6C776;
+                transition: all 300ms;
+                &:hover{
+                    background-color:#648A34;
+                    cursor:pointer;                    
+                }
+            }
+            input[type="text"]:focus::-webkit-input-placeholder,
+            input[type="password"]:focus::-webkit-input-placeholder{
+                color:rgba(255,255,255,0.7);
+            }
+        }
+    }
+    #note-box{
+        font-weight:100;
+        text-transform:uppercase;
+        font-size:0.8em;
+        padding:10px 0px 0px 0px;
+        text-align: center;
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+
+    
+}
+

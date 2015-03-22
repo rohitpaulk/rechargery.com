@@ -1,0 +1,44 @@
+- content_for :head do 
+  %meta{"http-equiv"=>"refresh","content"=>"4;url=#{@redirecturl}"} 
+
+
+
+- content_for :body_id do
+  loading-body
+
+%section.wrapper.loading-wrapper
+  %section.container.loading-header
+    %section.loading-logo
+      %h1 Rechargery
+  %section.container.loading-main-container
+    %h2 
+      Taking you to
+      = @store.name
+    .loading-storelogo
+      .loadingbar#storeloadingbar
+      .storelogo-div
+        %img{:src => asset_url("stores/#{@store.image_name}"),:width => 70,:height => 70}
+    %h3 Happy Shopping!
+    %p
+      - if current_user 
+        All purchases you make will automatically appear in your account by
+        = 3.days.from_now.strftime("%A")
+      - else
+        %a{:href=> new_login_path} You won't receive talktime on any purchases made because you aren't signed in to Rechargery.
+
+
+
+
+- content_for :afterjs do
+  <script>
+  $(document).ready(function () {
+  $("#storeloadingbar").animate({width:"100%"},6000);
+  NProgress.start();
+  setTimeout(function(){
+  NProgress.set(0.5);
+  },2000);
+  setTimeout(function(){
+  NProgress.set(0.9);
+  },4000);
+  });
+  </script>

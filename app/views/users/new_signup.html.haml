@@ -1,0 +1,59 @@
+- content_for :afterjs do
+    <script>
+    document.body.scrollReveal = new scrollReveal({init:false});
+    var ready = function(){
+    document.body.scrollReveal.init()
+    };
+    $(document).on('ready',ready());
+    $(document).on('page:load',ready());
+    </script>
+
+= render partial: "pages/newpagesheader"
+%section.wrapper.signup-wrapper
+    %section.signup-container.clearfix
+        %h2{"data-scroll-reveal" => "move 0px"} Create an account
+        %div.divider-bar
+        %section#note-box{"data-scroll-reveal" => "move 0px"}
+            %p
+                If you have an account already,
+                = link_to("Login Here",new_login_url)
+        %a.facebook{:href=>"/auth/facebook"}
+            Sign up with Facebook
+
+        %section#signup-box{"data-scroll-reveal" => "move 0px"}
+            - if flash[:alert]
+                %section.signupflashbox.alertbox
+                    = flash[:alert]
+            - if flash[:notice]
+                %section.signupflashbox.noticebox
+                    = flash[:notice]
+            - if @user && @user.errors.any?
+                %section.signupflashbox.alertbox
+                    - for message in @user.errors.full_messages
+                        = message
+                        <br>
+
+
+            = form_tag(post_signup_path,:id=> "signup-form") do
+
+                %label Name
+                = text_field_tag("name", @user.name, :class => "text", :placeholder => "ex. Arjun Kannasamy")
+                %label Email
+                = text_field_tag("email", @user.email, :class => "text", :placeholder => "ex. arjunkns@gmail.com")
+                %label Password
+                = password_field_tag("password", nil, :class => "text", :placeholder => "Something secret")
+                %label Password Again
+                = password_field_tag("password_confirmation", nil, :class => "text", :placeholder => "The same secret")
+                %label Phone Number
+                = text_field_tag("phone", @user.phone, :class => "text",:id=>"phonenumber-input", :placeholder => "ex. 9501499823")
+                /%input#phonenumber-input{:type => "text",:placeholder => "ex. 9501499823"}
+                = select_tag(:phone_operator, options_for_select(Recharge.providers),:id=>"phoneoperator-input")
+                / %select#phoneoperator-input
+                /     %option Airtel
+                /     %option Aircel
+                /     %option MTNL
+                /     %option Virgin
+                %button{:type => "submit"} Signup
+
+
+

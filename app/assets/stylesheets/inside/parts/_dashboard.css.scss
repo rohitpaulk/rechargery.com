@@ -1,0 +1,198 @@
+.body-container#dashboard{
+    padding-top: 70px;
+    padding-bottom:100px;
+}
+
+.talktimegraph{
+    float:right;
+    width:280px;
+    background-color: $darkblue;
+    //background-color: rgba(0,0,0,0.1);
+    border-radius:4px 4px 4px 4px;
+
+
+}
+.talktimegraph .graph{
+    display:block;
+    width:200px;
+    margin:auto;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.talktimegraph .graph #myChart{
+
+
+}
+.talktimegraph .values{
+    .pending,.recharged{
+        float:left;
+        width:50%;
+        height:60px;
+        color:white;
+        text-align: center;
+        padding-top: 10px;
+        .title{
+            font-size:10px;
+            font-weight: normal;
+        }
+        .amount{
+            font-size:18px;
+            font-weight: 900;
+        }
+    }
+    .pending{
+        background-color: $graphblue;
+        border-radius:0px 0px 0px 4px;
+
+
+    }
+    .recharged{
+        background-color: $graphgreen;
+        border-radius:0px 0px 4px 0px;
+    }
+}
+.orderstable{
+    float:left;
+    //width:560px;
+    width:640px;
+}
+.orderstable header, .talktimegraph header{
+    height:50px;
+    width:100%;
+    background-color: $darkblue;
+    color:white;
+    line-height: 50px;
+    padding-left: 20px;
+}
+.orderstable header h4{
+    float:left;
+}
+.orderstable .orderslist{
+    list-style: none;
+    color:white;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 50px;
+}
+.orderstable .orderslist .orderitem{
+    transition: 0.2s all;
+    height:50px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+
+.orderitem .activemarker{
+    height:50px;
+    width:1%;
+    float:left;
+    background-color:white;
+    opacity:0;
+    transition:0.2s all;
+}
+
+// .orderitem.status-1 .activemarker, .orderitem.status-0 .activemarker{
+//     //background-color: $twitterblue;
+//     //background-color: $facebookblue;
+//     background-color: white;
+// }
+
+// .orderitem.status-3 .activemarker, .orderitem.status-4 .activemarker{
+//     background-color: $gored;
+// }
+
+// .orderitem.status-2 .activemarker{
+//     background-color: $gogreen;
+// }
+
+.orderitem .statusball{
+    height:50px;
+    width:11%;
+    float:left;
+    text-align: center;
+    padding-top:15px;
+    padding-bottom:15px;
+
+    & img{
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        //vertical-align: middle;
+    }
+}
+.orderitem .date{
+    height:50px;
+    width:18%;
+    float:left;
+}
+.orderitem .store{
+    height:50px;
+    width:15%;
+    float:left;
+}
+.orderitem .desc{
+    height:50px;
+    width:30%;
+    float:left;
+    padding-left:10px;
+    transition: 0.2s all;
+    white-space:nowrap;
+    overflow:scroll;
+    background-color:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-weight:100;
+    &:focus{
+        background-color:$mediumblue;
+        color:rgba(255,255,255,1);
+        outline:none;
+    }
+    &::-webkit-input-placeholder {
+        color:rgba(255,255,255,0.8);
+    }
+    &::-moz-webkit-placeholder{
+        color:rgba(255,255,255,0.8);
+    }
+}
+.orderitem .amount{
+    height:50px;
+    width:15%;
+    float:left;
+    font-weight: bold;
+    padding-left:10px;
+}
+.orderitem .actions{
+    height:50px;
+    width:10%;
+    float:left;
+    font-size:12px;
+    opacity:0;
+    transition:0.2s all;
+}
+.orderitem:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.orderitem:hover .activemarker{
+    opacity:1;
+}
+.orderitem:hover .actions{
+    opacity:1;
+}
+.orderitem .actions a:hover{
+    text-decoration: underline;
+}
+
+
+.orderstable .legend{
+    opacity:0.5;
+    padding-right:10px;
+    float:right;
+    height:50px;
+    line-height:50px;
+    font-weight:100;
+    font-size:12px;
+    word-spacing:5px;
+    img{
+        vertical-align: middle;
+    }
+}

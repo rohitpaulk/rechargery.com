@@ -1,0 +1,29 @@
+- content_for :afterjs do
+  <script>
+  document.body.scrollReveal = new scrollReveal({init:false});
+  var ready = function(){
+  document.body.scrollReveal.init()
+  };  
+  $(document).on('ready',ready());
+  $(document).on('page:load',ready());  
+  </script>
+= render partial: "pages/newpagesheader"
+%section.promo-testimonials
+  %section.container.promodivider.blackpromodivider{"data-scroll-reveal" => ""}
+    %h3 <span>Testimonials</span>
+  %section.container.promotext.blackpromotext{"data-scroll-reveal" => "after 0.5s"}
+    %h4 Hear what our customers have to say!
+  %section.container.getkudoscontainer{"data-scroll-reveal" => "after 1s"}
+    <div class="getkudos-inline" data-site-name="rechargery" data-layout="inline">
+    /Oops. We aren't able to load testimonials right now, please check again later!
+    </div>
+    <script>
+    (function(w,t,gk,d,s,fs){if(w[gk])return;d=w.document;w[gk]=function(){
+    (w[gk]._=w[gk]._||[]).push(arguments)};s=d.createElement(t);s.async=!0;
+    s.src='//static.getkudos.me/widget.js';fs=d.getElementsByTagName(t)[0];
+    fs.parentNode.insertBefore(s,fs)})(window,'script','getkudos');
+      
+    getkudos('parse');
+    </script>
+
+= render partial: "pages/newfooter"

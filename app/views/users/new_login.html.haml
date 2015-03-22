@@ -1,0 +1,42 @@
+- content_for :afterjs do
+    <script>
+    document.body.scrollReveal = new scrollReveal({init:false});
+    var ready = function(){
+    document.body.scrollReveal.init()
+    };
+    $(document).on('ready',ready());
+    $(document).on('page:load',ready());
+    </script>
+
+= render partial: "pages/newpagesheader"
+%section.wrapper.login-wrapper
+    %section.container.login-container
+        %header{"data-scroll-reveal" => "move 0px"}
+            %h2 Free talktime awaits you.
+            %h3 Login below.
+        %a.facebook{:href=>"/auth/facebook"}
+            Sign in with Facebook
+        = form_tag(post_login_path, :name => "loginform","data-scroll-reveal" => "move 0px",:class=>"loginform") do
+            = hidden_field_tag("return_to",@return_to)
+            - if flash[:alert]
+                %section.loginflashbox.alertbox
+                    = flash[:alert]
+            - if flash[:notice]
+                %section.loginflashbox.noticebox
+                    = flash[:notice]
+            %section.loginfieldsbox
+
+                %label Email
+                = text_field_tag("email", nil, :placeholder => "Email")
+                %label Password
+                = password_field_tag("password", nil, :placeholder => "Password")
+            %section.loginbuttonbox
+                %button{:type => "submit"} Login
+        %footer{"data-scroll-reveal" => "move 0px"}
+            %section
+                %p
+                    Don't have an account? <a href="/signup"> Create one here.</a>
+                    <br><br>
+                    Have an account but forgot your password? <a href="/profile/forgotpassword">Click here.</a>
+                    <br><br>
+                    Don't want to create an account? If you'd just like to browse around, <a href="/stores"> click here!</a>

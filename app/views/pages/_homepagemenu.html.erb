@@ -1,0 +1,21 @@
+<script>
+function scrollToAnchor(aid){
+    var aTag = $(aid);
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
+$("#howitworkslink").click(function(e){
+		//e.preventDefault();
+		//scrollToAnchor("#howitworks");		
+	});
+</script>
+<ul>
+	<li class="active"><%= link_to("HomePage",url_for({:controller => "pages",:action =>"home"})) %></li>
+	<!--<li><%= link_to("How it Works",url_for({:controller => "pages",:action =>"home"})) %></li>-->
+	<li><a href="#howitworks" id="howitworkslink">How it works</a></li>
+	<% if(current_user) %>
+		<li><%= link_to("Dashboard",url_for({:controller => "users",:action =>"dashboard"})) %></li>
+	<% else %>
+
+		<li><%= link_to("Login",url_for({:controller => "users",:action =>"login"})) %></li>
+	<% end %>
+</ul>
