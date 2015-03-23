@@ -32,6 +32,20 @@ Store.create(
 	adblock_compatibility: true,
 	payment_method: nil,
 	categories: [all_stores],
-	tracker_urlidentifier: "flipkart.com"
+	tracker_urlidentifier: "flipkart.com",
+	tracker_type: 2,
+	tracker_storeurl: "http://www.flipkart.com",
+	tracker_afftag: "&affid=rohitkuruv"
 )
 
+Store.create(
+	:name => "Myntra",
+	:status => 2,
+	:tracker_type => 1,
+	:tracker_urlidentifier => "myntra.com",
+	:tracker_storeurl => "http://www.myntra.com",
+	:tracker_baseurl => "http://track.in.omgpm.com/?AID=556244&MID=349836&PID=9640&CID=4030497&WID=49514",
+	:tracker_deeplinker => "&r=",
+	:tracker_afftag => "",
+	:categories => [all_stores]
+)

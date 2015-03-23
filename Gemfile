@@ -4,7 +4,7 @@ ruby "2.2.1"
 
 gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
 
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 4.1.2'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 gem 'newrelic_rpm'

@@ -3,6 +3,10 @@ class Tracking < ActiveRecord::Base
 	belongs_to :user
 	has_one :order
 
+	validates_presence_of :url
+
+	after_create :create_finalurl
+
 	# def self.details
 	# 	trackers = [
 	# 		["flipkart",2,"flipkart.com","","","&affid=rohitkuruv"],
@@ -14,43 +18,36 @@ class Tracking < ActiveRecord::Base
 	# 	]
 	# end
 
-	def self.getredirecturl(url,trackingid)
-		finalurl = nil
-		store_obj = nil
-		Store.all.each do |store|
-			if url.include?(store.tracker_urlidentifier)
-				if store.tracker_type == 0 # Amazon
+	def create_finalurl
+		Store.all.each do |store_obj|
+			if url.include?(store_obj.tracker_urlidentifier)
+				if store_obj.tracker_type == 0 # Amazon
 					landingpage = url
-		 			urldest = landingpage + store.tracker_afftag
+		 			urldest = landingpage + store_obj.tracker_afftag
 		 			urldest = urldest.gsub('?','&')
 		 			urldest = urldest.sub('&','?')
-		 			finalurl = urldest
-		 			store_obj = store
+		 			self.finalurl = urldest
+		 			self.store = store_obj
 		 			break
-		 		elsif store.tracker_type == 1 # OMGPM
+		 		elsif store_obj.tracker_type == 1 # OMGPM
 		 			landingpage = url
-		 			urldest = landingpage + store.tracker_afftag
+		 			urldest = landingpage + store_obj.tracker_afftag
 		 			urldest = urldest.gsub('?','&')
 		 			urldest = urldest.sub('&','?')
-		 			finalurl = store.tracker_baseurl + "&UID=" + trackingid.to_s + store.tracker_deeplinker + CGI::escape(urldest)
-		 			store_obj = store
+		 			self.finalurl = store_obj.tracker_baseurl + "&UID=" + id.to_s + store_obj.tracker_deeplinker + CGI::escape(urldest)
+		 			self.store = store_obj
 		 			break
-		 		elsif store.tracker_type == 2 # FlipKart
+		 		elsif store_obj.tracker_type == 2 # FlipKart
 		 			landingpage = url
-		 			urldest = landingpage + store.tracker_afftag
-		 			urldest = urldest + "&affExtParam1="+ trackingid.to_s
+		 			urldest = landingpage + store_obj.tracker_afftag
+		 			urldest = urldest + "&affExtParam1="+ id.to_s
 		 			urldest = urldest.gsub('?','&')
 		 			urldest = urldest.sub('&','?')
-		 			finalurl = urldest
-		 			store_obj = store
+		 			self.finalurl = urldest
+		 			self.store = store_obj
 		 			break
 		 		end
 			end
-		end
-		if finalurl
-			return {:redirecturl => finalurl,:store => store_obj}
-		else
-			return false
 		end
 	end
 end
