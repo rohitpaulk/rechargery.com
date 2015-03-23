@@ -1,5 +1,18 @@
 require 'spec_helper'
 
+RSpec.shared_examples 'store identification' do |action|
+  it "fetches proper store" do
+    get action, slug: 'flipkart'
+    flipkart = Store.find_by_slug('flipkart')
+    expect(assigns(:store)).to eq(flipkart)
+  end
+
+  it "redirects to stores#index if store isn't valid" do
+    get action, slug: 'invalid'
+    expect(response).to redirect_to(stores_path)
+  end
+end
+
 describe StoresController do
   before do
     Rails.application.load_seed
@@ -13,42 +26,15 @@ describe StoresController do
   end
 
   describe "GET /stores/:slug" do
-    it "fetches proper store" do
-      get :show, slug: 'flipkart'
-      flipkart = Store.find_by_slug('flipkart')
-      expect(assigns(:store)).to eq(flipkart)
-    end
-
-    it "redirects to stores#index if store isn't valid" do
-      get :show, slug: 'invalid'
-      expect(response).to redirect_to(stores_path)
-    end
+    include_examples 'store identification', :show
   end
 
   describe "GET /stores/:slug/visited" do
-    it "fetches proper store" do
-      get :visited, slug: 'flipkart'
-      flipkart = Store.find_by_slug('flipkart')
-      expect(assigns(:store)).to eq(flipkart)
-    end
-
-    it "redirects to stores#index if store isn't valid" do
-      get :visited, slug: 'invalid'
-      expect(response).to redirect_to(stores_path)
-    end
+    include_examples 'store identification', :visited
   end
 
   describe "GET /stores/:slug/go" do
-    it "fetches proper store" do
-      get :visitstore, slug: 'flipkart'
-      flipkart = Store.find_by_slug('flipkart')
-      expect(assigns(:store)).to eq(flipkart)
-    end
-
-    it "redirects to stores#index if store isn't valid" do
-      get :visitstore, slug: 'invalid'
-      expect(response).to redirect_to(stores_path)
-    end
+    include_examples 'store identification', :visitstore
 
     it "redirects to amazon if slug is amazon" do
       get :visitstore, slug: 'amazon'

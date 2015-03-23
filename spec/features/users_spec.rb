@@ -18,6 +18,17 @@ feature "Sign up" do
 	end
 end
 
+feature "Log in", :type => :feature do
+	before do
+		@user = FactoryGirl.create(:user, password: "abcd123")
+	end
+
+	scenario "User signs in" do
+		sign_in_with(@user.email, "abcd123")
+		expect(page.current_path).to eq("/dashboard")
+	end
+end
+
 feature "View profile" do
 	before :each do
 		@user = FactoryGirl.create(:user, password: "abcd")
@@ -30,6 +41,8 @@ feature "View profile" do
 		expect(page).to have_content(@user.name)
 		expect(page).to have_content(@user.phone)
 	end
+
+	include_examples 'login wall redirect', '/dashboard'
 end
 
 feature "Edit profile" do
@@ -49,6 +62,8 @@ feature "Edit profile" do
 		visit("/profile")
 		expect(page).to have_content("9501499823")
 	end
+
+	include_examples 'login wall redirect', '/profile/edit'
 end
 
 feature "Change Password" do
@@ -84,5 +99,7 @@ feature "Change Password" do
 		sign_in_with(@user.email,"secret")
 		expect(page.current_path).to eq("/login")
 	end
+
+	include_examples 'login wall redirect', '/profile/changepassword'
  end
 
