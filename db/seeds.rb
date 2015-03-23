@@ -41,6 +41,7 @@ Store.create(
 Store.create(
 	:name => "Myntra",
 	:status => 2,
+	:image_name => "myntra.png",
 	:tracker_type => 1,
 	:tracker_urlidentifier => "myntra.com",
 	:tracker_storeurl => "http://www.myntra.com",

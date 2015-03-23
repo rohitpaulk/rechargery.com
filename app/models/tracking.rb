@@ -21,32 +21,8 @@ class Tracking < ActiveRecord::Base
 	def create_finalurl
 		Store.all.each do |store_obj|
 			if url.include?(store_obj.tracker_urlidentifier)
-				if store_obj.tracker_type == 0 # Amazon
-					landingpage = url
-		 			urldest = landingpage + store_obj.tracker_afftag
-		 			urldest = urldest.gsub('?','&')
-		 			urldest = urldest.sub('&','?')
-		 			self.finalurl = urldest
-		 			self.store = store_obj
-		 			break
-		 		elsif store_obj.tracker_type == 1 # OMGPM
-		 			landingpage = url
-		 			urldest = landingpage + store_obj.tracker_afftag
-		 			urldest = urldest.gsub('?','&')
-		 			urldest = urldest.sub('&','?')
-		 			self.finalurl = store_obj.tracker_baseurl + "&UID=" + id.to_s + store_obj.tracker_deeplinker + CGI::escape(urldest)
-		 			self.store = store_obj
-		 			break
-		 		elsif store_obj.tracker_type == 2 # FlipKart
-		 			landingpage = url
-		 			urldest = landingpage + store_obj.tracker_afftag
-		 			urldest = urldest + "&affExtParam1="+ id.to_s
-		 			urldest = urldest.gsub('?','&')
-		 			urldest = urldest.sub('&','?')
-		 			self.finalurl = urldest
-		 			self.store = store_obj
-		 			break
-		 		end
+				self.store = store_obj
+		 		self.finalurl = store.get_redirect_url(url, id)
 			end
 		end
 	end

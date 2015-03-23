@@ -20,38 +20,42 @@ class Store < ActiveRecord::Base
 	has_many :orders
 	has_and_belongs_to_many :categories, join_table: :categories_stores
 
-	validates_presence_of(:name,:message => "Store name not provided!")
-	validates_presence_of(:status,:message => "Store status not provided!")
-	validates_inclusion_of(:status, :in => 0..2)
-
-	validates_presence_of(:tracker_urlidentifier, :message => "You haven't provided a tracking url identifier")
+	validates_presence_of :name, message: "Store name not provided!"
+	validates_presence_of :status, message: "Store status not provided!"
+	validates_presence_of :image_name, message: "You haven't provided an image_name"
+	validates_presence_of :tracker_urlidentifier, message: "You haven't provided a tracking url identifier"
+	validates_inclusion_of :status, in: 0..2
 
 	def self.find_by_slug(slug)
-		Store.all.each do |store|
-			return store if store.slug == slug
-		end
-		return false
+		Store.all.select { |store|
+			store.slug == slug
+		}.first
 	end
-	def slug
-		return name.parameterize
-	end
+
 	def self.statuskeys
-		return {
+		{
 			"Off" => 0,
 			"Beta" => 1,
 			"Live" => 2
 		}
 	end
-	def beta?
-		self.status == 1
-	end
+
 	def self.trackertypes
-		return {
+		{
 			"Amazon" => 0,
 			"OMGPM" => 1,
 			"Flipkart" => 2
 		}
 	end
+
+	def slug
+		return name.parameterize
+	end
+
+	def beta?
+		self.status == 1
+	end
+
 	def timeperiod
 		if tracker_type == Store.trackertypes["Amazon"]
 			return "30-45 days"
@@ -61,8 +65,29 @@ class Store < ActiveRecord::Base
 			return "45-60 days"
 		end
 	end
-	
+
 	def redirecturl(tracker_id)
 		Tracking.getredirecturl(self.tracker_storeurl,tracker_id)
-	end	
+	end
+
+	def get_redirect_url(url, tracking_id)
+		case tracker_type
+		when 0 # Amazon
+			urldest = url + tracker_afftag
+			urldest = urldest.gsub('?','&')
+			urldest = urldest.sub('&','?')
+			return urldest
+		when 1 # OMGPM
+			urldest = url + tracker_afftag
+			urldest = urldest.gsub('?','&')
+			urldest = urldest.sub('&','?')
+			return tracker_baseurl + "&UID=" + tracking_id.to_s + tracker_deeplinker + CGI::escape(urldest)
+		when 2 # FlipKart
+			urldest = url + tracker_afftag
+			urldest = urldest + "&affExtParam1="+ tracking_id.to_s
+			urldest = urldest.gsub('?','&')
+			urldest = urldest.sub('&','?')
+			return urldest
+		end
+	end
 end
