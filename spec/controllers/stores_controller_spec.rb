@@ -46,4 +46,15 @@ describe StoresController do
       expect(assigns(:redirecturl)).to eq("http://www.flipkart.com?affid=rohitkuruv&affExtParam1=1")
     end
   end
+
+  describe 'Store timed redirect' do
+    render_views
+
+    it 'adds http equiv tag to visitstore' do
+      get :visitstore, slug: 'flipkart'
+      redirecturl = assigns(:redirecturl).gsub('&', '&amp;')
+      refresh_tag = "<meta content='4;url=#{redirecturl}' http-equiv='refresh'"
+      expect(response.body).to include(refresh_tag)
+    end
+  end
 end
