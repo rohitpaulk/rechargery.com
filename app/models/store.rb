@@ -24,7 +24,7 @@ class Store < ActiveRecord::Base
 	validates_presence_of :status, message: "Store status not provided!"
 	validates_presence_of :image_name, message: "You haven't provided an image_name"
 	validates_presence_of :tracker_urlidentifier, message: "You haven't provided a tracking url identifier"
-	validates_inclusion_of :status, in: 0..2
+	validates_inclusion_of :status, in: 0..2, message: "Status should be 0, 1 or 2"
 
 	def self.find_by_slug(slug)
 		Store.all.select { |store|
@@ -64,10 +64,6 @@ class Store < ActiveRecord::Base
 		elsif tracker_type == Store.trackertypes["OMGPM"]
 			return "45-60 days"
 		end
-	end
-
-	def redirecturl(tracker_id)
-		Tracking.getredirecturl(self.tracker_storeurl,tracker_id)
 	end
 
 	def get_redirect_url(url, tracking_id)

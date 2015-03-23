@@ -50,7 +50,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-group :development,:test do
+group :development, :test do
+  gem 'webmock'
+  gem 'vcr'
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"

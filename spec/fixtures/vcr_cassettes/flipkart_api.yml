@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://affiliate-api.flipkart.net/affiliate/report/orders/detail/json?endDate=2015-03-24&offset=0&startDate=2015-02-24&status=pending
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Fk-Affiliate-Id:
+      - rohitkuruv
+      Fk-Affiliate-Token:
+      - 74bc88fff74b471ea9c3819542b01f27
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.1 (Ubuntu)
+      Date:
+      - Mon, 23 Mar 2015 18:47:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"orderList":[{"price":949.0,"category":"Pen Drives","title":"Sandisk
+        Ultra USB 3.0 32 GB Utility Pendrive","productId":"ACCDSYDFMHUKZX9H","quantity":1,"sales":{"amount":949.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18065900","orderDate":"24-02-2015","commissionRate":1.0,"tentativeCommission":{"amount":9.49,"currency":"INR"},"affExtParam1":"3575","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":678.0,"category":"Pen
+        Drives","title":"Sandisk Cruzer Blade 32 GB","productId":"ACCD9XW3YU6VYCYS","quantity":1,"sales":{"amount":678.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18080476","orderDate":"24-02-2015","commissionRate":1.0,"tentativeCommission":{"amount":6.78,"currency":"INR"},"affExtParam1":"3576","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":161.0,"category":"Mobile
+        Accessories","title":"Motorola Grip Back Cover for Moto E","productId":"ACCDVGRZPZXNKTNE","quantity":1,"sales":{"amount":161.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18080477","orderDate":"24-02-2015","commissionRate":2.0,"tentativeCommission":{"amount":3.22,"currency":"INR"},"affExtParam1":"3576","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":159.0,"category":"Bags,
+        Wallets & Belts","title":"Travel Additions Soft Eye Mask Eye Shade","productId":"NPEDBTY7PHZYE5RT","quantity":1,"sales":{"amount":159.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18168762","orderDate":"26-02-2015","commissionRate":8.0,"tentativeCommission":{"amount":12.72,"currency":"INR"},"affExtParam1":"3593","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":99.0,"category":"Mobile
+        Accessories","title":"Motorola Back Replacement Cover for Moto E","productId":"ACCDVGRZW8XUZCFF","quantity":1,"sales":{"amount":99.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18205108","orderDate":"27-02-2015","commissionRate":2.0,"tentativeCommission":{"amount":1.98,"currency":"INR"},"affExtParam1":"3596","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":99.0,"category":"Mobile
+        Accessories","title":"Motorola Grip Back Cover for Moto E","productId":"ACCDVGSMYG6JXMR8","quantity":1,"sales":{"amount":99.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18205109","orderDate":"27-02-2015","commissionRate":2.0,"tentativeCommission":{"amount":1.98,"currency":"INR"},"affExtParam1":"3596","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":2799.0,"category":"Men
+        Footwear","title":"Reebok Trail Running Shoes","productId":"SHODVGH8FCEZFGQT","quantity":1,"sales":{"amount":2799.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18301949","orderDate":"01-03-2015","commissionRate":8.0,"tentativeCommission":{"amount":223.92,"currency":"INR"},"affExtParam1":"3603","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":539.0,"category":"Women
+        Clothing","title":"Biba Solid Women''s Kurta","productId":"KTADZB48T3PRUEGN","quantity":1,"sales":{"amount":539.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18376143","orderDate":"03-03-2015","commissionRate":8.0,"tentativeCommission":{"amount":43.12,"currency":"INR"},"affExtParam1":"3615","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":559.0,"category":"Women
+        Clothing","title":"Abhishti Casual Full Sleeve Solid Women''s Kurti","productId":"KRTDZMCDZS4DRZEY","quantity":1,"sales":{"amount":559.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18527397","orderDate":"08-03-2015","commissionRate":8.0,"tentativeCommission":{"amount":44.72,"currency":"INR"},"affExtParam1":"3655","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":12999.0,"category":"Moto
+        G Phones","title":"Moto G (2nd Gen)","productId":"MOBDYGZ6SHNB7RFC","quantity":1,"sales":{"amount":12999.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18609334","orderDate":"10-03-2015","commissionRate":1.5,"tentativeCommission":{"amount":194.985,"currency":"INR"},"affExtParam1":"3671","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":9999.0,"category":"Asus
+        Zenfone 5 Phones","title":"Asus Zenfone 5 A501CG","productId":"MOBDXZ9WZNZBG79S","quantity":1,"sales":{"amount":9999.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18613282","orderDate":"10-03-2015","commissionRate":1.0,"tentativeCommission":{"amount":99.99,"currency":"INR"},"affExtParam1":"3672","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":12999.0,"category":"Moto
+        G Phones","title":"Moto G (2nd Gen)","productId":"MOBDYGZ6SHNB7RFC","quantity":1,"sales":{"amount":12999.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18664057","orderDate":"13-01-2015","commissionRate":1.5,"tentativeCommission":{"amount":194.985,"currency":"INR"},"affExtParam1":"3320","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":412.0,"category":"Books","title":"Discrete
+        and Combinatorial Mathematics (English) 5th  Edition","productId":"9788177584240","quantity":1,"sales":{"amount":412.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18669988","orderDate":"12-03-2015","commissionRate":10.0,"tentativeCommission":{"amount":41.2,"currency":"INR"},"affExtParam1":"3678","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":6980.0,"category":"Mobile
+        Phones","title":"Karbonn Titanium S2 Plus","productId":"MOBDXZ9WHGFH8ZGM","quantity":1,"sales":{"amount":6980.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18711046","orderDate":"13-03-2015","commissionRate":3.0,"tentativeCommission":{"amount":209.4,"currency":"INR"},"affExtParam1":"3684","affExtParam2":"","salesChannel":"WEBSITE","customerType":"NEW"},{"price":1579.0,"category":"Mobile
+        Phones","title":"Nokia 130","productId":"MOBEFYX4XP4V9XH3","quantity":1,"sales":{"amount":1579.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18774702","orderDate":"16-03-2015","commissionRate":1.0,"tentativeCommission":{"amount":15.79,"currency":"INR"},"affExtParam1":"3699","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":2702.0,"category":"Watches","title":"Titan
+        2455BM01 Raga Analog Watch  - For Women","productId":"WATDE8JAQDRR3AZY","quantity":1,"sales":{"amount":2702.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18930184","orderDate":"21-03-2015","commissionRate":8.0,"tentativeCommission":{"amount":216.16,"currency":"INR"},"affExtParam1":"3728","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":5999.0,"category":"Moto
+        E Phones","title":"Moto E (1st Gen)","productId":"MOBDVHC6TH4PZGSM","quantity":1,"sales":{"amount":5999.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18957470","orderDate":"22-03-2015","commissionRate":1.0,"tentativeCommission":{"amount":59.99,"currency":"INR"},"affExtParam1":"3749","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":176.0,"category":"Mobile
+        Accessories","title":"Toshiba MicroSD Card 8 GB 15 MB/s Class 4","productId":"ACCDG8X5CW6VGPX2","quantity":1,"sales":{"amount":176.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18957471","orderDate":"22-03-2015","commissionRate":3.0,"tentativeCommission":{"amount":5.28,"currency":"INR"},"affExtParam1":"3749","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"}],"previous":"","next":"","first":"https://affiliate-api.flipkart.net/affiliate/report/orders/detail/json?startDate=2015-02-24&endDate=2015-03-24&status=pending&offset=0","last":"https://affiliate-api.flipkart.net/affiliate/report/orders/detail/json?startDate=2015-02-24&endDate=2015-03-24&status=pending&offset=0"}'
+    http_version: 
+  recorded_at: Mon, 23 Mar 2015 18:47:25 GMT
+recorded_with: VCR 2.9.3
