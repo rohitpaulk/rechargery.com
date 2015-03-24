@@ -28,6 +28,11 @@ class Order < ActiveRecord::Base
 	validates_numericality_of(:amount, :message => "Amount should be an integer", :allow_blank => true)
 	validate :amountisdivby10
 
+	def self.fetch_from_flipkart(*args)
+		fk_orders = Flipkart::Orders.new(ENV['FLIPKART_AFFILIATE_ID'], ENV['FLIPKART_AFFILIATE_TOKEN'])
+		fk_orders.all(*args)
+	end
+
 	def amountisdivby10
 		if !amount.nil? && amount%10!=0
 			errors.add(:amount, "Amount has to be a multiple of 10.")
@@ -53,7 +58,7 @@ class Order < ActiveRecord::Base
 	end
 
 	def self.statuskeys
-		return {
+		{
 			"Pending Review"=> 0,
 			"Order Confirmed"=> 1,
 			"Recharge Successful" => 2,
@@ -69,12 +74,6 @@ class Order < ActiveRecord::Base
 	def shopnametext
 		if self.store
 			return self.store.name
-		# elsif self.shopname == 1
-		# 	return "Amazon"
-		# elsif self.shopname == 2
-		# 	return "Flipkart"
-		# elsif self.shopname == 3
-		# 	return "Myntra"
 		end
 	end
 
@@ -85,6 +84,7 @@ class Order < ActiveRecord::Base
 			return 'Rs.' + self.amount.to_s
 		end
 	end
+
 	def actiontext
 		if self.status == 0
 			return "View Details"
@@ -106,6 +106,7 @@ class Order < ActiveRecord::Base
 			return true
 		end
 	end
+
 	def datetext
 		if self.tracking
 			self.tracking.created_at.strftime("%e %b %Y")

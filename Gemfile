@@ -27,6 +27,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'flipkart', '~> 0.0.3'
+
 gem 'bugsnag'
 
 gem 'omniauth'

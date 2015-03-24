@@ -109,6 +109,9 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
+    flipkart (0.0.3)
+      activesupport
+      httparty
     formatador (0.2.4)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
@@ -329,6 +332,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  flipkart (~> 0.0.3)
   guard-rspec
   haml
   heroku_rails_deflate
