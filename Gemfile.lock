@@ -84,6 +84,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
+    colorize (0.7.5)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
@@ -328,6 +329,7 @@ DEPENDENCIES
   bugsnag
   capybara
   coffee-rails (~> 4.0.0)
+  colorize
   devise
   dotenv-rails
   factory_girl_rails

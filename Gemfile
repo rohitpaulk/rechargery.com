@@ -10,6 +10,8 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem "skylight"
 
+gem 'colorize'
+
 group :development,:test do
   gem 'sqlite3'
 end
