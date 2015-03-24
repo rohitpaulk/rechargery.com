@@ -53,15 +53,18 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
-  gem 'webmock'
-  gem 'vcr'
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
-  gem "rspec-rails"
-  gem "faker"
-  gem "launchy"
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'launchy'
   gem 'rb-inotify'
   gem 'libnotify'
   gem 'rb-readline'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
