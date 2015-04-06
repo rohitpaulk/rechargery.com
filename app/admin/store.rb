@@ -1,21 +1,36 @@
 ActiveAdmin.register Store do
-    filter :categories, as: :check_boxes
+    filter :categories
     filter :name
     filter :status
-    
+
   	permit_params do
       params = []
-      params.push :name, :short_desc, :long_desc,:status,:image_name, category_ids: []
-      params.push :tracking_reliability,:adblock_compatibility,:payment_method
-      params.push :tracker_type,:tracker_urlidentifier,:tracker_storeurl,:tracker_baseurl,:tracker_deeplinker,:tracker_afftag
+      params.push(
+        :name,
+        :short_desc,
+        :long_desc,
+        :status,
+        :image_name,
+        :tracking_reliability,
+        :adblock_compatibility,
+        :payment_method,
+        :tracker_type,
+        :tracker_urlidentifier,
+        :tracker_storeurl,
+        :tracker_baseurl,
+        :tracker_deeplinker,
+        :tracker_afftag,
+        category_ids: []
+      )
       params
     end
+
   	index do
 			selectable_column
 			column :id
 			column :name
 			column :status
-			actions   	 
+			actions
 		end
 
   	form do |f|
@@ -25,7 +40,7 @@ ActiveAdmin.register Store do
         f.input :categories, as: :check_boxes, collection: Category.all
 				f.input :image_name
 				f.input :short_desc
-				f.input :long_desc								
+				f.input :long_desc
         f.input :tracking_reliability
         f.input :adblock_compatibility
         f.input :payment_method
@@ -57,15 +72,15 @@ ActiveAdmin.register Store do
         	store.categories.each do |category|
         		div link_to(category.name,admin_category_path(category))
         	end
-        end        
+        end
       end
       attributes_table do
         row :tracker_type
-        row :tracker_urlidentifier        
+        row :tracker_urlidentifier
         row :tracker_storeurl
-        row :tracker_baseurl        
+        row :tracker_baseurl
         row :tracker_deeplinker
-        row :tracker_afftag        
+        row :tracker_afftag
       end
       active_admin_comments
     end
