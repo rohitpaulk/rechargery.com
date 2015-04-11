@@ -69,7 +69,12 @@ class Store < ActiveRecord::Base
 	def get_redirect_url(url, tracking_id)
 		case tracker_type
 		when 0 # Amazon
-			urldest = url + tracker_afftag
+			url = overrid_affiliate(url)
+			if url[-1] == '?'
+				urldest = url + tracker_afftag[1..-1]
+			else
+				urldest = url + tracker_afftag
+			end
 			urldest = urldest.gsub('?','&')
 			urldest = urldest.sub('&','?')
 			return urldest
@@ -85,5 +90,20 @@ class Store < ActiveRecord::Base
 			urldest = urldest.sub('&','?')
 			return urldest
 		end
+	end
+
+	def overrid_affiliate(url)
+		if url.include?"tag="
+			pos = url.index("tag=")
+			sub = url[pos..-1]
+			if sub.include?"&"
+				pos = sub.index('&')
+				sub = sub[0..pos]
+			elsif url[pos-1] == '&'
+				sub = url[pos-1..-1]
+			end
+			url.slice!(sub)
+		end
+		return url
 	end
 end
