@@ -10,6 +10,8 @@ all_stores = Category.create(
 	name: "All Stores"
 )
 
+Store.delete_all
+
 Store.create(
 	name: 'Amazon',
 	status: 1,
@@ -21,7 +23,7 @@ Store.create(
 	tracker_type: 0,
 	tracker_urlidentifier: "amazon.in",
 	tracker_storeurl: "http://www.amazon.in/",
-	tracker_afftag: "&tag=rechargery-21"
+	tracker_afftag: "rechargery-21"
 )
 
 Store.create(
