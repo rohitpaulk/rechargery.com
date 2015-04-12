@@ -8,9 +8,9 @@ http_interactions:
       string: ''
     headers:
       Fk-Affiliate-Id:
-      - rohitkuruv
+      - flipkart-affiliate-id
       Fk-Affiliate-Token:
-      - 74bc88fff74b471ea9c3819542b01f27
+      - flipkart-affiliate-token
   response:
     status:
       code: 200
@@ -47,6 +47,6 @@ http_interactions:
         2455BM01 Raga Analog Watch  - For Women","productId":"WATDE8JAQDRR3AZY","quantity":1,"sales":{"amount":2702.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18930184","orderDate":"21-03-2015","commissionRate":8.0,"tentativeCommission":{"amount":216.16,"currency":"INR"},"affExtParam1":"3728","affExtParam2":"","salesChannel":"WEBSITE","customerType":"EXISTING"},{"price":5999.0,"category":"Moto
         E Phones","title":"Moto E (1st Gen)","productId":"MOBDVHC6TH4PZGSM","quantity":1,"sales":{"amount":5999.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18957470","orderDate":"22-03-2015","commissionRate":1.0,"tentativeCommission":{"amount":59.99,"currency":"INR"},"affExtParam1":"3749","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"},{"price":176.0,"category":"Mobile
         Accessories","title":"Toshiba MicroSD Card 8 GB 15 MB/s Class 4","productId":"ACCDG8X5CW6VGPX2","quantity":1,"sales":{"amount":176.0,"currency":"INR"},"status":"tentative","affiliateOrderItemId":"18957471","orderDate":"22-03-2015","commissionRate":3.0,"tentativeCommission":{"amount":5.28,"currency":"INR"},"affExtParam1":"3749","affExtParam2":"","salesChannel":"MOBILE_SITE","customerType":"EXISTING"}],"previous":"","next":"","first":"https://affiliate-api.flipkart.net/affiliate/report/orders/detail/json?startDate=2015-02-24&endDate=2015-03-24&status=pending&offset=0","last":"https://affiliate-api.flipkart.net/affiliate/report/orders/detail/json?startDate=2015-02-24&endDate=2015-03-24&status=pending&offset=0"}'
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 Mar 2015 18:47:25 GMT
 recorded_with: VCR 2.9.3
