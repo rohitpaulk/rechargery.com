@@ -72,12 +72,8 @@ class Store < ActiveRecord::Base
 			key = "tag"
 			uri = Addressable::URI.parse(url)
 			params = uri.query_values
-			if params
-				params[key] = tracker_afftag
-			else
-				params = Hash.new
-				params[key] = tracker_afftag
-			end
+			params ||= Hash.new
+			params[key] = tracker_afftag
 			uri.query_values = params
 			urldest = uri.to_s
 			return urldest
