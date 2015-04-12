@@ -17,6 +17,11 @@ describe TrackingController do
         expect(response).to redirect_to("http://www.amazon.in?tag=rechargery-21")
       end
 
+      it "overrides tracking tag for Amazon" do
+        get :redirect, url: "http://www.amazon.in?tag=abcd"
+        expect(response).to redirect_to("http://www.amazon.in?tag=rechargery-21")
+      end
+
       it "returns proper url for Flipkart" do
         get :redirect, url: "http://www.flipkart.com"
         expect(response).to redirect_to("http://www.flipkart.com?affid=rohitkuruv&affExtParam1=1")

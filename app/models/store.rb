@@ -69,9 +69,13 @@ class Store < ActiveRecord::Base
 	def get_redirect_url(url, tracking_id)
 		case tracker_type
 		when 0 # Amazon
-			urldest = url + tracker_afftag
-			urldest = urldest.gsub('?','&')
-			urldest = urldest.sub('&','?')
+			key = "tag"
+			uri = Addressable::URI.parse(url)
+			params = uri.query_values
+			params ||= Hash.new
+			params[key] = tracker_afftag
+			uri.query_values = params
+			urldest = uri.to_s
 			return urldest
 		when 1 # OMGPM
 			urldest = url + tracker_afftag
