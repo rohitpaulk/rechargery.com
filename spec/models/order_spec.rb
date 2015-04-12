@@ -44,15 +44,22 @@ describe Order do
 
   describe 'class methods' do
     describe '::fetch_from_flipkart' do
+
       it 'returns an array' do
         VCR.use_cassette 'flipkart_api' do
-          expect(Order.fetch_from_flipkart).to be_a(Array)
+          expect(Order.fetch_from_flipkart(
+            start_date = Date.new(2015, 2, 24),
+            end_date = Date.new(2015, 3, 24)
+          )).to be_a(Array)
         end
       end
 
       it 'contains valid objects' do
         VCR.use_cassette 'flipkart_api' do
-          expect(Order.fetch_from_flipkart.last).to respond_to(:price)
+          expect(Order.fetch_from_flipkart(
+            start_date = Date.new(2015, 2, 24),
+            end_date = Date.new(2015, 3, 24)
+          ).last).to respond_to(:price)
         end
       end
     end
