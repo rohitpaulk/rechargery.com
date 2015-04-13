@@ -15,6 +15,8 @@
 # t.string   "tracker_deeplinker"
 # t.string   "tracker_afftag"
 
+require 'addressable/uri'
+
 class Store < ActiveRecord::Base
 	has_many :trackings
 	has_many :orders
