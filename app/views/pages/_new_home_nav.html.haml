@@ -1,0 +1,14 @@
+%div.home-navigation.navigation
+  %h1.Navigation-logo
+    %a{:href=> "/"} Rechargery
+  %nav.Navigation-left
+    %a.Navigation-item{:href=> stores_path} Stores
+    %a.Navigation-item{:href=> howitworks_url} How it works
+    %a.Navigation-item{:href=> testimonials_url} Testimonials
+    %a.Navigation-item{:href=> "mailto:hello@rechargery.com"} Contact
+  %nav.Navigation-right
+    - if current_user
+      %a.Navigation-item.Navigation-button{:href=> dashboard_url} Dashboard
+    - else
+      %a.Navigation-item{:href=> new_signup_url} Sign up
+      %a.Navigation-item.Navigation-button{:href=> new_login_url} Login
