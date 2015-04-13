@@ -33,6 +33,8 @@ gem 'flipkart', '~> 0.0.3'
 
 gem 'bugsnag'
 
+gem 'addressable', '~> 2.3'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'sucker_punch', '~> 1.0'

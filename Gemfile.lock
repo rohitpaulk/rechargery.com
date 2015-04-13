@@ -323,6 +323,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  addressable (~> 2.3)
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
