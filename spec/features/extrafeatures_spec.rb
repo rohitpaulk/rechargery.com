@@ -6,6 +6,7 @@ feature "Menu bar" do
 			visit "/"
 			within(".home-navigation") do
 				expect(page).to have_content("Login")
+				expect(page).to have_content("Sign up")
 			end
 		end
 
@@ -14,6 +15,7 @@ feature "Menu bar" do
 			click_link "How it works"
 			within(".home-navigation") do
 				expect(page).to have_content("Login")
+				expect(page).to have_content("Sign up")
 			end
 		end
 	end
@@ -28,14 +30,16 @@ feature "Menu bar" do
 			visit "/"
 			within(".home-navigation") do
 				expect(page).to have_content("Dashboard")
+				expect(page).to_not have_content("Sign up")
 			end
 		end
 
-		scenario "view homepage when logged in" do
+		scenario "view howitworks when logged in" do
 			visit "/"
 			click_link "How it works"
 			within(".home-navigation") do
 				expect(page).to have_content("Dashboard")
+				expect(page).to_not have_content("Sign up")
 			end
 		end
 	end
