@@ -17,3 +17,4 @@
 //= require nprogress.js
 //= require inside/main.js
 //= require vendor/Chart.js
+//= require vendor/select.min.js

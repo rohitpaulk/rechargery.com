@@ -115,6 +115,7 @@ class UsersController < ApplicationController
 	def edit
 		return if require_login
 		@user = current_user
+		render layout: "application_inside"
 	end
 
 	def changepassword
@@ -175,7 +176,7 @@ class UsersController < ApplicationController
 			redirect_to(dashboard_path)
 		else
 			flash[:alert] = "Unable to update profile"
-			render "edit"
+			render "edit", layout: "application_inside"
 		end
 	end
 

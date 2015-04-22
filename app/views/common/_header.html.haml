@@ -11,7 +11,7 @@
 					%li Dashboard
 		%section.navigation-right
 			%ul.navigation-menu
-				%a{:href=> profile_path}
+				%a{:href=> profile_path, :class => active == 'account' ? "active" : ""}
 					%li Account
 				- if current_user
 					%a{:href=> get_logout_path}
