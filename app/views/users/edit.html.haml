@@ -5,7 +5,7 @@
 
         = render 'users/parts/account_errors'
 
-        = render "users/parts/account_sidebar"
+        = render "users/parts/account_sidebar", active: 'account'
 
         %section.account-content
             = form_tag(update_profile_url, class: 'account-form account-details') do
