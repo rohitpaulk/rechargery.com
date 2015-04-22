@@ -147,6 +147,16 @@ describe UsersController,:type => :controller do
         post :updatepassword, params
         expect(response).to render_template('changepassword')
       end
+
+      it "does not update current user if new password is empty" do
+        params = {
+          password: 'old_password',
+          new_password: '',
+          new_password_confirmation: ''
+        }
+        post :updatepassword, params
+        expect(response).to render_template('changepassword')
+      end
     end
   end
 

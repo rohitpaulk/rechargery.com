@@ -137,6 +137,10 @@ class UsersController < ApplicationController
 			render 'changepassword', layout: 'application_inside' and return
 		end
 
+		if params[:new_password] == ''
+			render 'changepassword', layout: 'application_inside' and return
+		end
+
 		@user.password = params[:new_password]
 
 		if @user.save
