@@ -6,7 +6,7 @@
 					<li><%= link_to("Stores",stores_path) %></li>
 					<% if current_user %>
 					<li><%= link_to("Dashboard",url_for({:controller => "users",:action =>"dashboard"})) %></li>
-					<li><%= link_to("Profile",url_for({:controller => "users",:action =>"show"})) %></li>
+					<li><%= link_to("Profile", edit_account_url) %></li>
 					<% end %>
 					<% if current_user %>
 					<li><%= link_to("Log Out",url_for({:controller => "sessions",:action =>"destroy"})) %></li>

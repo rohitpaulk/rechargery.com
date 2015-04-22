@@ -69,7 +69,7 @@ describe UsersController,:type => :controller do
       end
       it "redirects to login page" do
         get :edit
-        expect(response).to redirect_to(new_login_path(:return_to => edit_profile_path))
+        expect(response).to redirect_to(new_login_path(:return_to => edit_account_path))
       end
     end
   end
@@ -270,30 +270,6 @@ describe UsersController,:type => :controller do
       it "shows login/signup page" do
         get :dashboard
         expect(response).to redirect_to(new_login_path(:return_to => dashboard_path))
-      end
-    end
-  end
-
-  describe "GET #show" do
-    context "if user is logged in" do
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(FactoryGirl.create(:user))
-      end
-
-      it "renders show" do
-        get :show
-        expect(assigns[:current_user]).to_not be_nil
-        expect(response).to render_template('show')
-      end
-    end
-    context "if user is not logged in" do
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(nil)
-      end
-
-      it "shows login/signup page" do
-        get :show
-        expect(response).to redirect_to(new_login_path(:return_to => profile_path))
       end
     end
   end

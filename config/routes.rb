@@ -34,11 +34,10 @@ Master::Application.routes.draw do
 	get 'stores/:slug/go', to: 'stores#visitstore', as: 'store_visit'
 	get 'stores/:slug/visited', to: 'stores#visited', as: 'store_visited'
 	get 'dashboard', to: 'users#dashboard', as: 'dashboard'
-	get 'profile', to: 'users#show', as: 'profile'
-	get 'profile/edit', to: 'users#edit', as: 'edit_profile'
-	post 'profile/edit', to: 'users#update', as: 'update_profile'
-	get 'profile/changepassword', to: 'users#changepassword', as: 'changepassword'
-	post 'profile/changepassword', to: 'users#updatepassword', as: 'updatepassword'
+	get 'account', to: 'users#edit', as: 'edit_account'
+	post 'account', to: 'users#update', as: 'update_account'
+	get 'account/password', to: 'users#changepassword', as: 'changepassword'
+	post 'account/password', to: 'users#updatepassword', as: 'updatepassword'
 	#get 'profile/destroy', to: 'users#destroy', as: 'delete_user'
 
 

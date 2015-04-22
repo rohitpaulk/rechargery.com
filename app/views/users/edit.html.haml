@@ -8,7 +8,7 @@
         = render "users/parts/account_sidebar", active: 'account'
 
         %section.account-content
-            = form_tag(update_profile_url, class: 'account-form account-details') do
+            = form_tag(update_account_url, class: 'account-form account-details') do
                 %section.form-row
                     %section.full-column
                         %label Name

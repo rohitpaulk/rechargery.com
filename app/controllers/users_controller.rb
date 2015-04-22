@@ -227,10 +227,4 @@ class UsersController < ApplicationController
 		@orders = @current_user.orders.order(:created_at).reverse
 		render :layout => "application_inside"
 	end
-
-	def show #profile
-		return if require_login
-		@current_user = current_user
-	end
-
 end
