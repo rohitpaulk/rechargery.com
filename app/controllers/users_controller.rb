@@ -121,6 +121,7 @@ class UsersController < ApplicationController
 	def changepassword
 		return if require_login
 		@user = current_user
+		render layout: "application_inside"
 	end
 
 	def updatepassword
@@ -128,12 +129,12 @@ class UsersController < ApplicationController
 
 		if not @user.check_password(params[:password])
 			flash[:alert]= 'Your old password is wrong'
-			render "changepassword" and return
+			render "changepassword", layout: 'application_inside' and return
 		end
 
 		if params[:new_password] != params[:new_password_confirmation]
 			flash[:alert]="Passwords don't match"
-			render "changepassword" and return
+			render 'changepassword', layout: 'application_inside' and return
 		end
 
 		@user.password = params[:new_password]
@@ -143,7 +144,7 @@ class UsersController < ApplicationController
 			redirect_to dashboard_path
 		else
 			flash[:alert] = "Password change Failed. Try again"
-			render "changepassword"
+			render 'changepassword', layout: 'application_inside'
 		end
 	end
 

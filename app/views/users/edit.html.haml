@@ -2,11 +2,8 @@
 
 %section.wrapper.body-wrapper
     %section.container.body-container.clearfix#account
-        - if @user && @user.errors.any?
-            %div.errors
-                - for message in @user.errors.full_messages
-                    = message
-                    %br
+
+        = render 'users/parts/account_errors'
 
         = render "users/parts/account_sidebar"
 
