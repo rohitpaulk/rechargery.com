@@ -101,27 +101,49 @@ describe UsersController,:type => :controller do
 
   describe "POST #updatepassword" do
     before do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryGirl.create(:user, password: 'old_password')
       ApplicationController.any_instance.stub(:current_user).and_return(@user)
     end
 
     context "with valid attributes" do
       it "updates current user" do
-        params = { password: "abcd3", password_confirmation: "abcd3" }
+        params = {
+          password: 'old_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password'
+        }
         post :updatepassword, params
-        expect(@user.check_password("abcd3")).to be_true
+        expect(@user.check_password('new_password')).to be_true
       end
 
       it "redirects to dashboard" do
-        params = { password: "abcd3", password_confirmation: "abcd3" }
+        params = {
+          password: 'old_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password'
+        }
         post :updatepassword, params
         expect(response).to redirect_to(url_for({:controller => "users", :action => "dashboard", :only_path => true}))
       end
     end
 
     context "with invalid attributes" do
-      it "does not update current user" do
-        params = { password: "abcd", password_confirmation: "abcd3" }
+      it "does not update current user if old password is wrong" do
+        params = {
+          password: 'wrong_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password'
+        }
+        post :updatepassword, params
+        expect(response).to render_template('changepassword')
+      end
+
+      it "does not update current user if new passwords don't match" do
+        params = {
+          password: 'old_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password2'
+        }
         post :updatepassword, params
         expect(response).to render_template('changepassword')
       end
