@@ -31,6 +31,8 @@ describe TrackingController do
         get :redirect, url: "http://myntra.com"
         expect(Tracking.count).to eq(1)
         expect(Tracking.last.url).to eq("http://myntra.com")
+        expect(Tracking.last.store.name).to eq("Myntra")
+        expect(Tracking.last.finalurl).to_not be_nil
       end
 
       it "redirects if URL is invalid" do
