@@ -29,22 +29,6 @@ feature "Log in", :type => :feature do
 	end
 end
 
-feature "View profile" do
-	before :each do
-		@user = FactoryGirl.create(:user, password: "abcd")
-		sign_in_with(@user.email, "abcd")
-	end
-
-	scenario "user submits proper attributes" do
-		expect(page.current_path).to eq("/dashboard")
-		visit("/profile")
-		expect(page).to have_content(@user.name)
-		expect(page).to have_content(@user.phone)
-	end
-
-	include_examples 'login wall redirect', '/dashboard'
-end
-
 feature "Edit profile" do
 	before do
 		@user = FactoryGirl.create(:user, password: "abcd")
@@ -53,36 +37,46 @@ feature "Edit profile" do
 
 	scenario "user submits proper attributes" do
 		expect(page.current_path).to eq("/dashboard")
-		visit("/profile/edit")
+		visit('/account')
 		fill_in "name", :with => "Rohit Paul"
-		fill_in "phone", :with => "9501499823"
+		fill_in "phone", :with => "9501499821"
 		click_button "Update Details"
 		expect(page.current_path).to eq("/dashboard")
 		expect(page).to have_content("Details Updated")
-		visit("/profile")
-		expect(page).to have_content("9501499823")
+		visit('/account')
+		expect(find_field('phone').value).to eq('9501499821')
 	end
 
-	include_examples 'login wall redirect', '/profile/edit'
+	scenario "user submits proper attributes" do
+		expect(page.current_path).to eq("/dashboard")
+		visit('/account')
+		fill_in "name", :with => ""
+		click_button "Update Details"
+		expect(page.current_path).to eq('/account')
+		expect(page).to have_content("You haven't entered a name")
+	end
+
+	include_examples 'login wall redirect', '/account'
 end
 
 feature "Change Password" do
  	before do
-		@user = FactoryGirl.create(:user, password: "abcd")
-		sign_in_with(@user.email, "abcd")
+		@user = FactoryGirl.create(:user, password: 'abcd')
+		sign_in_with(@user.email, 'abcd')
 	end
 
 	scenario "user submits proper attributes" do
 		expect(page.current_path).to eq("/dashboard")
 		click_link "Account"
 		click_link "Change Password"
-		fill_in "password", :with => "secret"
-		fill_in "password_confirmation", :with => "secret"
+		fill_in 'password', :with => 'abcd'
+		fill_in 'new_password', :with => 'new_password'
+		fill_in 'new_password_confirmation', :with => 'new_password'
 		click_button "Change Password"
 		expect(page.current_path).to eq("/dashboard")
 		expect(page).to have_content("Details Updated")
 		logout
-		sign_in_with(@user.email,"secret")
+		sign_in_with(@user.email, 'new_password')
 		expect(page.current_path).to eq("/dashboard")
 	end
 
@@ -90,16 +84,17 @@ feature "Change Password" do
 		expect(page.current_path).to eq("/dashboard")
 		click_link "Account"
 		click_link "Change Password"
-		fill_in "password", :with => "secret2"
-		fill_in "password_confirmation", :with => "secret"
+		fill_in 'password', :with => 'abcd'
+		fill_in 'new_password', :with => 'new_password'
+		fill_in 'new_password_confirmation', :with => 'new_password2'
 		click_button "Change Password"
-		expect(page.current_path).to eq("/profile/changepassword")
-		expect(page).to have_content("passwords don't match")
+		expect(page.current_path).to eq('/account/password')
+		expect(page).to have_content("Passwords don't match")
 		logout
-		sign_in_with(@user.email,"secret")
+		sign_in_with(@user.email, 'new_password')
 		expect(page.current_path).to eq("/login")
 	end
 
-	include_examples 'login wall redirect', '/profile/changepassword'
+	include_examples 'login wall redirect', '/account/password'
  end
 

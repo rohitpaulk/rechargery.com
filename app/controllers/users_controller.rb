@@ -115,28 +115,41 @@ class UsersController < ApplicationController
 	def edit
 		return if require_login
 		@user = current_user
+		render layout: "application_inside"
 	end
 
 	def changepassword
 		return if require_login
 		@user = current_user
+		render layout: "application_inside"
 	end
 
 	def updatepassword
 		@user = current_user
-		if params[:password] != params[:password_confirmation]
-			flash[:alert]="passwords don't match"
-			render "changepassword" and return
+
+		if not @user.check_password(params[:password])
+			flash[:alert]= 'Your old password is wrong'
+			render "changepassword", layout: 'application_inside' and return
 		end
-		@user.password = params[:password]
+
+		if params[:new_password] != params[:new_password_confirmation]
+			flash[:alert]="Passwords don't match"
+			render 'changepassword', layout: 'application_inside' and return
+		end
+
+		if params[:new_password] == ''
+			flash[:alert] = "Password can't be empty"
+			render 'changepassword', layout: 'application_inside' and return
+		end
+
+		@user.password = params[:new_password]
+
 		if @user.save
-			session[:user_id] = @user.id
 			flash[:notice] = "Details Updated."
 			redirect_to dashboard_path
 		else
-			@user = User.find(@user.id)
 			flash[:alert] = "Password change Failed. Try again"
-			render "changepassword"
+			render 'changepassword', layout: 'application_inside'
 		end
 	end
 
@@ -158,11 +171,11 @@ class UsersController < ApplicationController
 		redirect_to(login_path)
 	end
 
-	def destroy
-		current_user.destroy if current_user
-		flash[:notice] = "Account Deleted"
-		redirect_to(login_path)
-	end
+	# def destroy
+	# 	current_user.destroy if current_user
+	# 	flash[:notice] = "Account Deleted"
+	# 	redirect_to(login_path)
+	# end
 
 	def update
 		@user = current_user
@@ -175,7 +188,7 @@ class UsersController < ApplicationController
 			redirect_to(dashboard_path)
 		else
 			flash[:alert] = "Unable to update profile"
-			render "edit"
+			render "edit", layout: "application_inside"
 		end
 	end
 
@@ -219,10 +232,4 @@ class UsersController < ApplicationController
 		@orders = @current_user.orders.order(:created_at).reverse
 		render :layout => "application_inside"
 	end
-
-	def show #profile
-		return if require_login
-		@current_user = current_user
-	end
-
 end

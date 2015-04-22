@@ -69,7 +69,7 @@ describe UsersController,:type => :controller do
       end
       it "redirects to login page" do
         get :edit
-        expect(response).to redirect_to(new_login_path(:return_to => edit_profile_path))
+        expect(response).to redirect_to(new_login_path(:return_to => edit_account_path))
       end
     end
   end
@@ -101,27 +101,59 @@ describe UsersController,:type => :controller do
 
   describe "POST #updatepassword" do
     before do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryGirl.create(:user, password: 'old_password')
       ApplicationController.any_instance.stub(:current_user).and_return(@user)
     end
 
     context "with valid attributes" do
       it "updates current user" do
-        params = { password: "abcd3", password_confirmation: "abcd3" }
+        params = {
+          password: 'old_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password'
+        }
         post :updatepassword, params
-        expect(@user.check_password("abcd3")).to be_true
+        expect(@user.check_password('new_password')).to be_true
       end
 
       it "redirects to dashboard" do
-        params = { password: "abcd3", password_confirmation: "abcd3" }
+        params = {
+          password: 'old_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password'
+        }
         post :updatepassword, params
         expect(response).to redirect_to(url_for({:controller => "users", :action => "dashboard", :only_path => true}))
       end
     end
 
     context "with invalid attributes" do
-      it "does not update current user" do
-        params = { password: "abcd", password_confirmation: "abcd3" }
+      it "does not update current user if old password is wrong" do
+        params = {
+          password: 'wrong_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password'
+        }
+        post :updatepassword, params
+        expect(response).to render_template('changepassword')
+      end
+
+      it "does not update current user if new passwords don't match" do
+        params = {
+          password: 'old_password',
+          new_password: 'new_password',
+          new_password_confirmation: 'new_password2'
+        }
+        post :updatepassword, params
+        expect(response).to render_template('changepassword')
+      end
+
+      it "does not update current user if new password is empty" do
+        params = {
+          password: 'old_password',
+          new_password: '',
+          new_password_confirmation: ''
+        }
         post :updatepassword, params
         expect(response).to render_template('changepassword')
       end
@@ -170,35 +202,35 @@ describe UsersController,:type => :controller do
     end
   end
 
-  describe "GET #destroy" do
-    context "user not logged in" do
-      before do
-        FactoryGirl.create(:user)
-        ApplicationController.any_instance.stub(:current_user).and_return(nil)
-      end
+  # describe "GET #destroy" do
+  #   context "user not logged in" do
+  #     before do
+  #       FactoryGirl.create(:user)
+  #       ApplicationController.any_instance.stub(:current_user).and_return(nil)
+  #     end
 
-      it "doesn't destroys user" do
-        get :destroy
-        expect(User.count).to eq(1)
-      end
-    end
+  #     it "doesn't destroys user" do
+  #       get :destroy
+  #       expect(User.count).to eq(1)
+  #     end
+  #   end
 
-    context "user is logged in" do
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(FactoryGirl.create(:user))
-      end
+  #   context "user is logged in" do
+  #     before do
+  #       ApplicationController.any_instance.stub(:current_user).and_return(FactoryGirl.create(:user))
+  #     end
 
-      it "destroys user" do
-        get :destroy
-        expect(User.count).to eq(0)
-      end
+  #     it "destroys user" do
+  #       get :destroy
+  #       expect(User.count).to eq(0)
+  #     end
 
-      it "redirects to login" do
-        get :destroy
-        expect(response).to redirect_to(url_for({:controller => "users", :action => "login", :only_path => true}))
-      end
-    end
-  end
+  #     it "redirects to login" do
+  #       get :destroy
+  #       expect(response).to redirect_to(url_for({:controller => "users", :action => "login", :only_path => true}))
+  #     end
+  #   end
+  # end
 
   describe "POST #update" do
     before do
@@ -248,30 +280,6 @@ describe UsersController,:type => :controller do
       it "shows login/signup page" do
         get :dashboard
         expect(response).to redirect_to(new_login_path(:return_to => dashboard_path))
-      end
-    end
-  end
-
-  describe "GET #show" do
-    context "if user is logged in" do
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(FactoryGirl.create(:user))
-      end
-
-      it "renders show" do
-        get :show
-        expect(assigns[:current_user]).to_not be_nil
-        expect(response).to render_template('show')
-      end
-    end
-    context "if user is not logged in" do
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(nil)
-      end
-
-      it "shows login/signup page" do
-        get :show
-        expect(response).to redirect_to(new_login_path(:return_to => profile_path))
       end
     end
   end

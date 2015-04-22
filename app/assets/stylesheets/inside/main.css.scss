@@ -3,7 +3,7 @@
 @import "shared/_resets";
 @import "shared/_common";
 
-// @import "vendor/select-theme-default.scss";
+@import "vendor/select-theme-default.scss";
 // @import "vendor/odometer-theme-default";
 
 @import "layout/_navigation";
@@ -14,6 +14,7 @@
 @import "parts/_singlestore";
 @import "parts/_loading";
 @import "parts/_dashboard";
+@import "parts/_account";
 
 // @import "partials/_home";
 // @import "partials/_phone";

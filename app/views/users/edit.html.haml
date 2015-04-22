@@ -1,0 +1,36 @@
+= render "common/header", :active => 'account'
+
+%section.wrapper.body-wrapper
+    %section.container.body-container.clearfix#account
+
+        = render 'users/parts/account_errors'
+
+        = render "users/parts/account_sidebar", active: 'account'
+
+        %section.account-content
+            = form_tag(update_account_url, class: 'account-form account-details') do
+                %section.form-row
+                    %section.full-column
+                        %label Name
+                        = text_field_tag("name", nil, :class => "text", :placeholder => @current_user.name, :value => @current_user.name)
+                %section.form-row
+                    %section.full-column
+                        %label Phone
+                        = text_field_tag("phone", nil, :class => "text", :placeholder => @current_user.phone, :value => @current_user.phone)
+                %section.form-row
+                    %section.full-column.large
+                        %label Phone Operator
+                        = select_tag "phone_operator", options_for_select(Recharge.providers, @current_user.phone_operator || "Airtel")
+                %button{type: 'submit', class: 'savebutton'} Update Details
+
+- content_for :afterjs do
+    :javascript
+        ready = function () {
+            Select.init({
+                selector: '#phone_operator'
+            });
+        }
+        $(document).ready(ready);
+
+
+= render "common/footer"

@@ -1,0 +1,9 @@
+- if @user && @user.errors.any?
+    %div.errors
+        - for message in @user.errors.full_messages
+            = message
+            %br
+
+- if flash[:alert]
+    %div.errors
+        = flash[:alert]

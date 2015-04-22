@@ -1,0 +1,12 @@
+%section.account-sidebar
+    %ul.sidebar-menu
+        %a{href: edit_account_url}
+            %li.menu-item.clearfix{:class => active == 'account' ? "active" : ""}
+                %div.menu-icon
+                    %img{:src => image_url("accounts-icon.png")}
+                %div.menu-text Account Details
+        %a{href: changepassword_url}
+            %li.menu-item.clearfix{:class => active == 'password' ? "active" : ""}
+                %div.menu-icon
+                    %img{:src => image_url("password-icon.png")}
+                %div.menu-text Change Password
