@@ -138,6 +138,7 @@ class UsersController < ApplicationController
 		end
 
 		if params[:new_password] == ''
+			flash[:alert] = "Password can't be empty"
 			render 'changepassword', layout: 'application_inside' and return
 		end
 
