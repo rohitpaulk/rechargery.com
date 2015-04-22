@@ -68,7 +68,7 @@ feature "Edit profile" do
 		visit("/profile/edit")
 		fill_in "name", :with => ""
 		click_button "Update Details"
-		expect(page.current_path).to eq("/profile/update")
+		expect(page.current_path).to eq("/profile/edit")
 		expect(page).to have_content("You haven't entered a name")
 	end
 

@@ -6,7 +6,7 @@
 			</header>
 	</section>
 	<div id="editprofilecontainer" class="container clearfix">
-		<%= form_tag (url_for({:controller => 'users',:action => 'update'})) do %>
+		<%= form_tag (update_profile_url) do %>
 
 			<% if flash[:alert] %>
 				<div id="flash">

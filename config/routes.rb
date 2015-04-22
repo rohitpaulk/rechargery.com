@@ -36,7 +36,7 @@ Master::Application.routes.draw do
 	get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 	get 'profile', to: 'users#show', as: 'profile'
 	get 'profile/edit', to: 'users#edit', as: 'edit_profile'
-	post 'profile/update', to: 'users#update', as: 'update_profile'
+	post 'profile/edit', to: 'users#update', as: 'update_profile'
 	get 'profile/changepassword', to: 'users#changepassword', as: 'changepassword'
 	post 'profile/changepassword', to: 'users#updatepassword', as: 'updatepassword'
 	get 'profile/destroy', to: 'users#destroy', as: 'delete_user'
