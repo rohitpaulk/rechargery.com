@@ -23,6 +23,7 @@ class Tracking < ActiveRecord::Base
 			if url.include?(store_obj.tracker_urlidentifier)
 				self.store = store_obj
 		 		self.finalurl = store.get_redirect_url(url, id)
+		 		self.save!
 			end
 		end
 	end
