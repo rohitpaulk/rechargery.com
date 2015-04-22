@@ -7,17 +7,9 @@
                 - for message in @user.errors.full_messages
                     = message
                     %br
-        %section.account-sidebar
-            %ul.sidebar-menu
-                %a{href: "#abcd"}
-                    %li.menu-item.active.clearfix
-                        %div.menu-icon
-                            %img{:src => image_url("accounts-icon.png")}
-                        %div.menu-text Account Details
-                    %li.menu-item.clearfix
-                        %div.menu-icon
-                            %img{:src => image_url("accounts-icon.png")}
-                        %div.menu-text Change Password
+
+        = render "users/parts/account_sidebar"
+
         %section.account-content
             = form_tag(update_profile_url, class: 'account-form account-details') do
                 %section.form-row
