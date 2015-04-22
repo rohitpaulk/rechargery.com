@@ -39,7 +39,7 @@ Master::Application.routes.draw do
 	post 'profile/edit', to: 'users#update', as: 'update_profile'
 	get 'profile/changepassword', to: 'users#changepassword', as: 'changepassword'
 	post 'profile/changepassword', to: 'users#updatepassword', as: 'updatepassword'
-	get 'profile/destroy', to: 'users#destroy', as: 'delete_user'
+	#get 'profile/destroy', to: 'users#destroy', as: 'delete_user'
 
 
 	get 'orders/newamazon', to: 'orders#newamazon', as: 'newamazon'

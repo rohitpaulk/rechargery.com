@@ -159,11 +159,11 @@ class UsersController < ApplicationController
 		redirect_to(login_path)
 	end
 
-	def destroy
-		current_user.destroy if current_user
-		flash[:notice] = "Account Deleted"
-		redirect_to(login_path)
-	end
+	# def destroy
+	# 	current_user.destroy if current_user
+	# 	flash[:notice] = "Account Deleted"
+	# 	redirect_to(login_path)
+	# end
 
 	def update
 		@user = current_user

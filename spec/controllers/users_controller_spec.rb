@@ -170,35 +170,35 @@ describe UsersController,:type => :controller do
     end
   end
 
-  describe "GET #destroy" do
-    context "user not logged in" do
-      before do
-        FactoryGirl.create(:user)
-        ApplicationController.any_instance.stub(:current_user).and_return(nil)
-      end
+  # describe "GET #destroy" do
+  #   context "user not logged in" do
+  #     before do
+  #       FactoryGirl.create(:user)
+  #       ApplicationController.any_instance.stub(:current_user).and_return(nil)
+  #     end
 
-      it "doesn't destroys user" do
-        get :destroy
-        expect(User.count).to eq(1)
-      end
-    end
+  #     it "doesn't destroys user" do
+  #       get :destroy
+  #       expect(User.count).to eq(1)
+  #     end
+  #   end
 
-    context "user is logged in" do
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(FactoryGirl.create(:user))
-      end
+  #   context "user is logged in" do
+  #     before do
+  #       ApplicationController.any_instance.stub(:current_user).and_return(FactoryGirl.create(:user))
+  #     end
 
-      it "destroys user" do
-        get :destroy
-        expect(User.count).to eq(0)
-      end
+  #     it "destroys user" do
+  #       get :destroy
+  #       expect(User.count).to eq(0)
+  #     end
 
-      it "redirects to login" do
-        get :destroy
-        expect(response).to redirect_to(url_for({:controller => "users", :action => "login", :only_path => true}))
-      end
-    end
-  end
+  #     it "redirects to login" do
+  #       get :destroy
+  #       expect(response).to redirect_to(url_for({:controller => "users", :action => "login", :only_path => true}))
+  #     end
+  #   end
+  # end
 
   describe "POST #update" do
     before do
