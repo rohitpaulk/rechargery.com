@@ -63,6 +63,15 @@ feature "Edit profile" do
 		expect(page).to have_content("9501499823")
 	end
 
+	scenario "user submits proper attributes" do
+		expect(page.current_path).to eq("/dashboard")
+		visit("/profile/edit")
+		fill_in "name", :with => ""
+		click_button "Update Details"
+		expect(page.current_path).to eq("/profile/update")
+		expect(page).to have_content("You haven't entered a name")
+	end
+
 	include_examples 'login wall redirect', '/profile/edit'
 end
 
